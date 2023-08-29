@@ -119,13 +119,10 @@ GEM
       sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
-<<<<<<< Updated upstream
+    htmlbeautifier (1.4.2)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
-=======
-    htmlbeautifier (1.4.2)
->>>>>>> Stashed changes
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -275,11 +272,8 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass (~> 6.1)
-<<<<<<< Updated upstream
-  httparty
-=======
   htmlbeautifier
->>>>>>> Stashed changes
+  httparty
   importmap-rails
   jbuilder
   pg (~> 1.1)
