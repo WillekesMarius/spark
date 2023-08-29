@@ -14,5 +14,6 @@
 <%= render "shared/flashes" %>
 
     <%= yield %>
+    <span id="open-ai-token" data-token="<%= ENV['OPENAI_API_KEY'] %>"></span>
   </body>
 </html>
