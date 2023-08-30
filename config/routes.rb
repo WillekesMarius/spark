@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :reviews, only: %i[show new create]
   resources :categories, only: %i[index show]
   resources :chatgpt, only: %i[index]
+  resources :google, only: %i[index]
 end
