@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :favorites, only: %i[create edit update destroy]
   resources :reviews, only: %i[show new create]
   resources :categories, only: %i[index show]
+  resources :chatgpt, only: %i[index]
 end
