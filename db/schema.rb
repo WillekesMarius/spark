@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_28_131213) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_211012) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_131213) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "icon"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_131213) do
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_url"
     t.index ["category_id"], name: "index_suggestions_on_category_id"
   end
 

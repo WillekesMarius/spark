@@ -112,16 +112,12 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    erb-formatter (0.4.3)
+      syntax_tree (~> 6.0)
     erubi (1.12.0)
     execjs (2.8.1)
     faker (3.2.1)
       i18n (>= 1.8.11, < 2)
-    faraday (2.7.10)
-      faraday-net_http (>= 2.0, < 3.1)
-      ruby2_keywords (>= 0.0.4)
-    faraday-multipart (1.0.4)
-      multipart-post (~> 2)
-    faraday-net_http (3.0.2)
     ffi (1.15.5)
     font-awesome-sass (6.4.2)
       sassc (~> 2.0)
@@ -157,7 +153,6 @@ GEM
     minitest (5.19.0)
     msgpack (1.7.2)
     multi_xml (0.6.0)
-    multipart-post (2.3.0)
     net-imap (0.3.7)
       date
       net-protocol
@@ -175,6 +170,7 @@ GEM
     orm_adapter (0.5.0)
     pg (1.5.3)
     popper_js (2.11.8)
+    prettier_print (1.2.1)
     public_suffix (5.0.3)
     puma (5.6.7)
       nio4r (~> 2.0)
@@ -218,10 +214,6 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
-    ruby-openai (5.1.0)
-      faraday (>= 1)
-      faraday-multipart (>= 1)
-    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -244,6 +236,8 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
+    syntax_tree (6.1.1)
+      prettier_print (>= 1.2.0)
     thor (1.2.2)
     tilt (2.2.0)
     timeout (0.4.0)
@@ -273,9 +267,8 @@ GEM
     zeitwerk (2.6.11)
 
 PLATFORMS
-
+  arm64-darwin-20
   arm64-darwin-22
-
   x86_64-linux
 
 DEPENDENCIES
@@ -286,6 +279,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  erb-formatter
   faker
   font-awesome-sass (~> 6.1)
   htmlbeautifier
@@ -295,7 +289,6 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
-  ruby-openai
   sassc-rails
   selenium-webdriver
   simple_form!

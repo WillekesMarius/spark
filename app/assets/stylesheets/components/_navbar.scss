@@ -11,8 +11,9 @@
   width: 40px;
 }
 
-footer {
+.footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+  z-index: 1;
 }

@@ -1,2 +1,24 @@
-<h1>Suggestions#index</h1>
-<p>Find me in app/views/suggestions/index.html.erb</p>
+<div class="container" style="height:100%; display:flex;flex-direction:column;">
+<main style="flex:1; overflow:auto;">
+<section style="height:100%; overflow:auto;">
+    <% @suggestions.each_slice(3) do |suggestion_row| %>
+      <% suggestion_row.each do |suggestion| %>
+        <div class="card mb-3">
+
+          <% if suggestion.image_url.present? %>
+            <%= image_tag(suggestion.image_url, class: "card-img-top") %>
+          <% else %>
+            <%= image_tag("food-01.jpg", class: "card-img-top") %>
+          <% end %>
+
+          <div class="card-body">
+            <h5 class="card-title"><%= suggestion.title %></h5>
+            <p class="card-text"><%= suggestion.overview %></p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <section>
+    <main>
+</div>

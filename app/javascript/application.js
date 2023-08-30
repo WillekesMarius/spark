@@ -6,9 +6,9 @@ import "bootstrap"
 
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: ENV['OPENAI_API_KEY'], dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
-});
+ const openai = new OpenAI({
+   apiKey: ENV['OPENAI_API_KEY'], dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
+ });
 
 async function main(user_message) {
   const completion = await openai.chat.completions.create({
