@@ -10,10 +10,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
 
     <%= yield %>
-    <span id="open-ai-token" data-token="<%= ENV['OPENAI_API_KEY'] %>"></span>
+    <span id="openai-token" data-token="<%= "Bearer #{ENV['OPENAI_API_KEY']}" %>"></span>
   </body>
 </html>
