@@ -1,1 +1,42 @@
-ga .
+.suggestions-cover {
+  // background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(0, 0, 0, 0.73));
+}
+
+.suggestion-cards {
+  border-radius: 8px !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+
+
+}
+
+.suggestion-cards-info {
+
+  background: white;
+  color: black ;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+
+
+  p{
+    color: rgb(96, 96, 96);
+  }
+}
+
+
+
+//  .card {
+//   border-radius: 10px;
+//  }
+
+.navbar-toggler {
+  border: none;
+  // color: #992944;
+}
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(153, 41, 68)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
