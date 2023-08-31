@@ -9,4 +9,4 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index show]
   resources :chatgpt, only: %i[index]
   resources :google, only: %i[index]
-end
+

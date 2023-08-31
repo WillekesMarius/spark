@@ -1,0 +1,48 @@
+body {
+  background: white;
+}
+
+.avatar-extra-large {
+  border-radius: 50%;
+
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #bdafc0;
+}
+
+.back {
+align-content: center;
+}
+
+.profile-button {
+  background: #A03851;
+  align-items: center;
+  box-shadow: none;
+  width: 200px;
+  border: 1px solid #ffffff;
+  padding: 8px 24px;
+  border-radius: 50px;
+}
+
+.pffile-button:hover {
+  background: #A03851;
+}
+
+.profile-button:focus {
+  background: #A03851;
+  box-shadow: none;
+  align-items: center;
+}
+
+.profile-button:active {
+  background: #A03851;
+  box-shadow: none;
+  align-items: center;
+}
+
+.back:hover {
+  color: #A03851;
+  cursor: pointer;
+}

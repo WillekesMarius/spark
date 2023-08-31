@@ -1,6 +1,7 @@
 require 'faker'
 
 puts "Cleaning database"
+
 Category.destroy_all
 Suggestion.destroy_all
 
@@ -25,12 +26,15 @@ end
 puts "Creating suggestions"
 
 10.times do
+  random_number = rand(1..10)
+  file_name = "food-0#{random_number}.jpg"
   suggestion = Suggestion.create!(
     title: Faker::Restaurant.name,
     overview: Faker::Restaurant.description,
     longitude: 4.897070,
     latitude: 52.377956,
-    category: Category.all.sample
+    category: Category.all.sample,
+    image_url: file_name
   )
   puts "Created #{suggestion.title}"
 end

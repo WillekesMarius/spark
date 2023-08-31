@@ -1,3 +1,4 @@
+<!-- le wagon nav bar
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
@@ -19,8 +20,7 @@
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
+           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
@@ -36,3 +36,45 @@
     </div>
   </div>
 </div>
+-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
+  <div style="margin-left: 10px;">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  </div>
+  <img src="/assets/logo-1" alt="Spark-logo" style="width:25%;" >
+
+  <div style="margin-right: 10px;">
+    <a class="navbar-profile-icon" href="#"></a>
+    <span class="user-icon" style="color: #992944;">
+      <i class="fa-solid fa-user fa-lg"></i>
+    </span>
+  </div>
+</nav>
+
+<footer class="footer">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
+    <div style="margin-left: 10px;">
+      <%= link_to suggestions_path do %>
+        <span class="user-icon" style="color: #992944;">
+          <i class="fa-solid fa-house fa-lg"></i>
+        </span>
+      <% end %>
+    </div>
+    <div>
+
+      <span class="user-icon" style="color: #992944;">
+        <i class="fa-solid fa-heart fa-lg"></i>
+      </span>
+    </div>
+    <div>
+      <%= link_to categories_path do %>
+        <span class="user-icon" style="color: #992944; margin-right: 10px;">
+          <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+        </span>
+      <% end %>
+    </div>
+  </nav>
+
+</footer>

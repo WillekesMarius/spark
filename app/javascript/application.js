@@ -5,12 +5,10 @@ import "@popperjs/core"
 import "bootstrap"
 
 import OpenAI from 'openai';
-const token = document.querySelector('#open-ai-token').dataset.token
-console.log(document.querySelector('#open-ai-token'))
 
-const openai = new OpenAI({
-  apiKey: token, dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
-});
+ const openai = new OpenAI({
+   apiKey: ENV['OPENAI_API_KEY'], dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
+ });
 
 async function main(user_message) {
   const completion = await openai.chat.completions.create({
@@ -24,6 +22,5 @@ async function main(user_message) {
   console.log(new Date().toLocaleTimeString())
 }
 console.log(new Date().toLocaleTimeString())
-main('Give me 3 italian restaurants in Amsterdam-West, only the names.');
-main('Give me 3 italian restaurants in Amsterdam-West, only the names.');
-main('Give me 3 different italian restaurants in Amsterdam-West, only the names.');
+// main('Give me 5 creative date ideas specifically in Amsterdam-Oost (only the names). Return them in a csv format including only the headings.');
+// main('Give me 5 italian restaurants in Amsterdam (only the names). Return them in a csv format including only the headings.');

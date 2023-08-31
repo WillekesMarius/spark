@@ -81,3 +81,4 @@ end
 
 gem 'httparty'
 gem 'faker'
+gem 'erb-formatter' 
