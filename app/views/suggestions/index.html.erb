@@ -10,8 +10,8 @@
 
       <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
 
-        <% if suggestion.image_url.present? %>
-          <%= image_tag(suggestion.image_url, class: "card-img-top") %>
+        <% if suggestion.images.present? %>
+          <%= image_tag(suggestion.images[0], class: "card-img-top") %>
         <% else %>
           <%= image_tag("food-01.jpg", class: "card-img-top") %>
         <% end %>
@@ -22,7 +22,7 @@
             style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: -1px; "
           ><%= suggestion.title %></h5>
           <% cities = %w[Amsterdam Rotterdam Alkmaar Utrecht] %>
-          <% rating = [4.5, 5, 2.3, 3.1, 4.2, 5.0].sample %>
+          <% rating = suggestion.rating %>
           <div>
             <p class="card-text"><i class="fa-solid fa-location-dot"></i>
               <%= cities.sample %>
@@ -31,10 +31,9 @@
                 <%= rating %></i>
             </p>
           </div>
-
         </div>
-      </div>
 
+      </div>
     <% end %>
   <% end %>
 </div>
