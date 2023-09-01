@@ -1,7 +1,7 @@
-  <div class="card bg-dark text-white" style="height: 150px;">
-    <img class="card-img" src="assets/dashboard.jpeg"  alt="Card image">
-    <div class="card-img-overlay"></div>
-  </div>
+<div class="card bg-dark text-white" style="height: 150px;">
+  <img class="card-img" src="assets/dashboard.jpeg" alt="Card image">
+  <div class="card-img-overlay"></div>
+</div>
 
 <div class="container" style="margin-top: 70px">
 
@@ -19,20 +19,19 @@
         <div class="suggestion-cards-info">
           <h5
             class="card-title"
-            style="padding-top: 15px; font-weight: 700; letter-spacing: 1px;"
+            style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: -1px; "
           ><%= suggestion.title %></h5>
-
           <% cities = %w[Amsterdam Rotterdam Alkmaar Utrecht] %>
           <% rating = [4.5, 5, 2.3, 3.1, 4.2, 5.0].sample %>
-          &nbsp;
-          <div style="padding-top: 12px">
+          <div>
             <p class="card-text"><i class="fa-solid fa-location-dot"></i>
-
               <%= cities.sample %>
               &nbsp;
-              <i class="fa-solid fa-star" style="color: #992944; font-size: 14px"> <%= rating %></i>
+              <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
+                <%= rating %></i>
             </p>
           </div>
+
         </div>
       </div>
 
