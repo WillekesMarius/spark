@@ -1,6 +1,4 @@
-.suggestions-cover {
-  // background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(0, 0, 0, 0.73));
-}
+
 
 .suggestion-cards {
   border: none;
@@ -40,4 +38,44 @@
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(153, 41, 68)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.brand-text {
+  color: $brand-color;
+}
+
+ .suggestion-banner{
+    background-image: asset-url('dashboard.jpeg');
+    background-position: top;
+     background-size: cover;
+     width: 100%;
+     height: 100%;
+     padding-bottom: 80%;
+    z-index: 0;
+ }
+
+.image-container {
+  position: relative;
+  display: inline-block; /* Ensures the container wraps around the image */
+
+  img {
+    display: block; /* Remove any default inline spacing */
+    width: 100%; /* Make the image responsive to its container */
+    height: auto; /* Maintain the aspect ratio */
+  }
+
+}
+
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 197%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgb(255, 251, 239));
+}
+
+text-dashboard {
+  z-index: 100;
 }
