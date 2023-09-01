@@ -1,31 +1,45 @@
 <div class="container categories-index" style="margin-top: 90px">
 
   <div>
-    <div class="container d-flex justify-content-center">
-      <div style="width:50%; align:center;"><button type="button" class="btn btn-outline-secondary" style="border-radius: 20px; width: 120px;">Location</button></div>
-
-      <div style="width:50%,align:center;"><button type="button" class="btn btn-outline-secondary" style="border-radius: 20px; width: 120px; ">Date/Time</button></div>
+    <div
+      class="container d-flex justify-content-between"
+      style="padding-left: 40px; padding-right: 40px; "
+    >
+      <div><button
+          type="button"
+          class="btn btn-outline-secondary"
+          style="border-radius: 20px; width: 120px;"
+        >Location</button></div>
+      <div><button
+          type="button"
+          class="btn btn-outline-secondary"
+          style="border-radius: 20px; width: 120px;"
+        >Date/Time</button></div>
     </div>
     <hr>
-    <p style="text-align: center; font-size: 19px; font-weight: bold;">Browse by category</p>
-              <% color = %w[red blue green brown orange pink hotpink voilet darkturquoise darkblue] %>
-    <% @categories.each_slice(2) do |categorie_row| %>
-      <div class="row">
-        <% categorie_row.each do |category| %>
-            <div class="card category-cards" style="width: 10rem; margin:10px;">
-              <div class="card-body" style="text-align:center;">
-              <div>
-                <span>
-                  <i class="<%= category.icon %>" style="color:<%= color.sample %>"></i>
-                </span>
-                <br>
-                </div>
-                <h5 class="card-title" style="padding-top: 6px; font-size: 16px; "><%= category.title %></h5>
-              </div>
-            </div>
-        <% end %>
-      </div>
-    <% end %>
+    <p style="text-align: center; font-size: 19px; font-weight: bold;">Categories</p>
+    <% color = %w[
+      red
+      blue
+      green
+      brown
+      orange
+      pink
+      hotpink
+      voilet
+      darkturquoise
+      darkblue
+    ] %>
+    <div class="row justify-content-around" style="margin-left: 30px; margin-right: 30px; ">
+      <% @categories.each do |category| %>
+        <div class='card category-cards col-5 mb-3 text-center align-items-center'>
+          <%= link_to category_path(category), class: 'text-decoration-none text-dark' do %>
+              <i class="<%= category.icon %>" style="color:<%= color.sample %>"></i>
+              <h5 class="card-title" style="padding-top: 6px; font-size: 16px; "><%= category.title %></h5>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 
+</div>
