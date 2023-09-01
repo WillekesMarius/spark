@@ -2,20 +2,15 @@
   <img class="card-img" src="assets/dashboard.jpeg" alt="Card image">
   <div class="card-img-overlay"></div>
 </div>
-
-<div class="container" style="margin-top: 70px">
-
+<div class="container" onclick="show(${id})" style="margin-top: 70px">
   <% @suggestions.each_slice(3) do |suggestion_row| %>
     <% suggestion_row.each do |suggestion| %>
-
       <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
-
         <% if suggestion.image_url.present? %>
           <%= image_tag(suggestion.image_url, class: "card-img-top") %>
         <% else %>
           <%= image_tag("food-01.jpg", class: "card-img-top") %>
         <% end %>
-
         <div class="suggestion-cards-info">
           <h5
             class="card-title"
@@ -31,10 +26,8 @@
                 <%= rating %></i>
             </p>
           </div>
-
         </div>
       </div>
-
     <% end %>
   <% end %>
 </div>

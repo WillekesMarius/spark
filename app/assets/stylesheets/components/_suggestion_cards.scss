@@ -8,26 +8,46 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   font-family: 'Montserrat', sans-serif;
   font-family: 'Open Sans', sans-serif;
-  font-family: 'Roboto', sans-serif;git addgit 
+  font-family: 'Roboto', sans-serif;
 
 
 }
 
 .suggestion-cards-info {
-
   background: white;
   color: black;
   padding-left: 15px;
   padding-bottom: 15px;
-  padding-right: 15px;
+  padding-right: 15px; 
+  }
 
 
   p {
     color: rgb(96, 96, 96);
+    margin-bottom: 20px;
+    
   }
-}
 
-
+  #category-button-show-page-explore {
+    text-decoration: none;
+    color: #000000;
+    padding: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid rgba(132, 127, 127, 0.9);
+    background: transparent;
+    text-align: center;
+  }
+  
+  #category-button-show-page-explore:hover {
+    background-color: rgba(116, 112, 113, 0.3);
+  }
 
 //  .card {
 //   border-radius: 10px;

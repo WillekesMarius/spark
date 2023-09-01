@@ -21,6 +21,7 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
   }
 
 #category-page-main {
@@ -102,4 +103,8 @@
   line-height: 1.5;
   margin-bottom: 1.25rem;    
   font-weight: 400;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
 }
