@@ -18,7 +18,7 @@
     </div>
     <hr>
     <p style="text-align: center; font-size: 19px; font-weight: bold;">Categories</p>
-    <% color = %w[
+    <% colors = %w[
       red
       blue
       green
@@ -34,12 +34,11 @@
       <% @categories.each do |category| %>
         <div class='card category-cards col-5 mb-3 text-center py-3'>
           <%= link_to category_path(category), class: 'text-decoration-none text-dark pt-2' do %>
-              <i class="<%= category.icon %>" style="color:<%= color.sample %>"></i>
+              <i class="<%= category.icon %>" style="color:<%= colors[index] %>"></i>
               <h5 class="card-title" style="padding-top: 14px; font-size: 16px; "><%= category.title %></h5>
           <% end %>
         </div>
       <% end %>
     </div>
   </div>
-
 </div>
