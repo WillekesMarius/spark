@@ -31,11 +31,11 @@
       darkblue
     ] %>
     <div class="row justify-content-around" style="margin-left: 30px; margin-right: 30px; ">
-      <% @categories.each_with_index do |category, index| %>
-        <div class='card category-cards col-5 mb-3 text-center align-items-center'>
-          <%= link_to category_path(category), class: 'text-decoration-none text-dark' do %>
+      <% @categories.each do |category| %>
+        <div class='card category-cards col-5 mb-3 text-center py-3'>
+          <%= link_to category_path(category), class: 'text-decoration-none text-dark pt-2' do %>
               <i class="<%= category.icon %>" style="color:<%= colors[index] %>"></i>
-              <h5 class="card-title" style="padding-top: 6px; font-size: 16px; "><%= category.title %></h5>
+              <h5 class="card-title" style="padding-top: 14px; font-size: 16px; "><%= category.title %></h5>
           <% end %>
         </div>
       <% end %>
