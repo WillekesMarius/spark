@@ -22,10 +22,12 @@
           ><%= suggestion.title %></h5>
           <% cities = %w[Amsterdam Rotterdam Alkmaar Utrecht] %>
           <% rating = suggestion.rating %>
+          <% type = suggestion.sub_category %>
           <div>
             <p class="card-text"><i class="fa-solid fa-location-dot"></i>
               <%= cities.sample %>
               &nbsp;
+              <%= type %>
               <i class="fa-solid fa-star brand-text" style="font-size: 14px">
                 <%= rating %></i>
             </p>
