@@ -18,7 +18,7 @@
     </div>
     <hr>
     <p style="text-align: center; font-size: 19px; font-weight: bold;">Categories</p>
-    <% color = %w[
+    <% colors = %w[
       red
       blue
       green
@@ -31,10 +31,10 @@
       darkblue
     ] %>
     <div class="row justify-content-around" style="margin-left: 30px; margin-right: 30px; ">
-      <% @categories.each do |category| %>
+      <% @categories.each_with_index do |category, index| %>
         <div class='card category-cards col-5 mb-3 text-center align-items-center'>
           <%= link_to category_path(category), class: 'text-decoration-none text-dark' do %>
-              <i class="<%= category.icon %>" style="color:<%= color.sample %>"></i>
+              <i class="<%= category.icon %>" style="color:<%= colors[index] %>"></i>
               <h5 class="card-title" style="padding-top: 6px; font-size: 16px; "><%= category.title %></h5>
           <% end %>
         </div>
