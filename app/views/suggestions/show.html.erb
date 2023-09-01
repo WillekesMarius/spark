@@ -1,2 +1,32 @@
-<h1>Suggestions#show</h1>
-<p>Find me in app/views/suggestions/show.html.erb</p>
+<div id="category-page-main">
+  <ul id="category-show-page-card">
+    <li class="cards_item_category_show">
+      <i class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i>
+      <div class="card_category_show_page_full_card">
+        <div class="card_image_show_category">
+          <img src="https://picsum.photos/500/300/?image=10" style="height: auto; max-width: 100%; vertical-align: middle;">
+        </div>
+        <div class="card_content_category_show_page">
+          <h2 class="card_title_category_show_page"><%= @suggestion.title %></h2>
+          <p class="card_text_category_show_page" style="text-wrap"><%= @suggestion.overview %></p>
+          <p class="card_text_category_show_page">Location:<p><%= @suggestion.longitude%> , <%= @suggestion.latitude%></p>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if user_signed_in? %>
+    <% if @suggestion.favorited?(current_user) == true %>
+      <i class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i>
+      <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+        <span>Favorited to your Sparks</span>
+        <a data-bs-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    <% else %>
+      <%= link_to favorite_create_path(@suggestion), method: :post do %>
+        <i class="fa-regular fa-heart" style="color: #ea3434;"></i>
+      <%end%>
+    <% end %>
+  <% end %>

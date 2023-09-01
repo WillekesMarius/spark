@@ -16,5 +16,7 @@
 
     <%= yield %>
     <span id="openai-token" data-token="<%= "Bearer #{ENV['OPENAI_API_KEY']}" %>"></span>
+    <%# <p class="notice"><%= notice %>
+    <%# <p class="alert"><%= alert %>
   </body>
 </html>
