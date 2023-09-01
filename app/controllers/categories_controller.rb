@@ -4,11 +4,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @categories = Category.find_by(params[:id])
+    @category = Category.find(params[:id])
+    @suggestions = @category.suggestions
   end
-
-
-  
-
-
 end
