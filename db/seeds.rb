@@ -1,5 +1,7 @@
 require 'faker'
 require_relative("date_ideas/amsterdam")
+require_relative("date_ideas/rotterdam")
+require_relative("date_ideas/the_hague")
 
 API_KEY = ENV['GOOGLE_API_KEY']
 
@@ -66,6 +68,24 @@ def seed_database_openai(title, description, address, rating, city, category)
   puts "Created #{suggestion.title}"
 end
 
+def iterate_openai_ideas(category, city)
+  puts ""
+  puts "#{category} suggestions #{city}:"
+
+  case city
+  when "Amsterdam"
+    date_ideas = $ideas_amsterdam[category]
+  when "Rotterdam"
+    date_ideas = $ideas_rotterdam[category]
+  when "The Hague"
+    date_ideas = $ideas_the_hague[category]
+  end
+
+  date_ideas.each do |idea|
+    seed_database_openai(idea[:title], idea[:description], idea[:address], idea[:rating], city, category)
+  end
+end
+
 puts "Cleaning database"
 
 Suggestion.destroy_all
@@ -101,7 +121,8 @@ cities.each do |city|
   categories.each do |category|
     case category
     when 'Drinks'
-      sub_categories = ['Cafe', 'Coffee', 'Pubs', 'Cocktail', 'Wine']
+      # sub_categories = ['Cafe', 'Coffee', 'Pubs', 'Cocktail', 'Wine']
+      sub_categories = ['Cafe']
 
       sub_categories.each do |sub_category|
         puts ""
@@ -109,7 +130,8 @@ cities.each do |city|
         create_suggestions("#{sub_category}%20in%20#{city}", city, category, sub_category)
       end
     when 'Dining'
-      sub_categories = ['Italian', 'French', 'Asian', 'American']
+      # sub_categories = ['Italian', 'French', 'Asian', 'American']
+      sub_categories = ['Italian']
 
       sub_categories.each do |sub_category|
         puts ""
@@ -117,24 +139,7 @@ cities.each do |city|
         create_suggestions("#{sub_category}%20restaurants%20in%20#{city}", city, category, sub_category)
       end
     else
-      # puts ""
-      # puts "#{category} suggestions #{city}:"
-
-      # case city
-      # when "Amsterdam"
-      #   date_ideas = $adventure_active_amsterdam
-      # when "Rotterdam"
-
-      # when "The Hague"
-
-      # else
-      #   next
-      # end
-      #   $adventure_active_amsterdam
-
-      # date_ideas.each do |idea|
-      #   seed_database_openai(idea[:title], idea[:description], idea[:address], idea[:rating], city, category)
-      # end
+      iterate_openai_ideas(category, city)
     end
   end
 end
