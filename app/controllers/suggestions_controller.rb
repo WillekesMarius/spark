@@ -3,6 +3,12 @@ class SuggestionsController < ApplicationController
 
   def index
     @suggestions = Suggestion.all
+    @markers = @suggestions.map do |suggestion|
+      {
+        lat: suggestion.latitude,
+        lng: suggestion.longitude
+      }
+    end
   end
 
   def show

@@ -17,3 +17,5 @@ pin "openai/_shims/node-readable", to: "https://ga.jspm.io/npm:openai@4.2.0/_shi
 pin "openai/core", to: "https://ga.jspm.io/npm:openai@4.2.0/core.mjs"
 pin "openai/pagination", to: "https://ga.jspm.io/npm:openai@4.2.0/pagination.mjs"
 pin "openai/resource", to: "https://ga.jspm.io/npm:openai@4.2.0/resource.mjs"
+pin "mapbox-gl", to: "https://ga.jspm.io/npm:mapbox-gl@2.15.0/dist/mapbox-gl.js"
+pin "process", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/process-production.js"

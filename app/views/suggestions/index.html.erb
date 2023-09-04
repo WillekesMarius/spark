@@ -1,5 +1,8 @@
 <div class="cover">
-  <p class='text-dashboard' style="position: absolute; left: 50%; top: 134px; transform: translate(-50%); z-index: 1000; font-weight: 700; font-size: 28px; color: white; text-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;">Your Sparks</p>
+  <p
+    class='text-dashboard'
+    style="position: absolute; left: 50%; top: 134px; transform: translate(-50%); z-index: 1000; font-weight: 700; font-size: 28px; color: white; text-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;"
+  >Your Sparks</p>
   <div class="card bg-dark text-white image-container" style="height: 150px;">
 
     <img class="card-img" src="assets/dashboard-2.jpeg" alt="card image">
@@ -11,8 +14,12 @@
     <%= link_to suggestion_path(suggestion), class: 'text-decoration-none text-dark' do %>
       <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
         <% if suggestion.images.present? %>
-          <%= image_tag(suggestion.images[0], class: "card-img-top") %>
-        
+          <%= image_tag(
+            suggestion.images[0],
+            class: "card-img-top",
+            style: "max-height:250px;"
+          ) %>
+
         <% else %>
           <%= image_tag("food-01.jpg", class: "card-img-top") %>
         <% end %>
@@ -33,6 +40,17 @@
                 <%= rating %></i>
             </p>
           </div>
+            <div id="map"></div>
+            <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
+        var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v12',
+          center: [<%= suggestion.longitude %>, <%= suggestion.latitude %>],
+          zoom: 14
+        });
+
+      </script>
         </div>
       </div>
     <% end %>

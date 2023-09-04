@@ -19,7 +19,7 @@ puts "Created admin to login with: email #{admin.email}, password: 'password'}"
 puts "Creating categories"
 
 categories = ['Dining', 'Drinks', 'Nightlife', 'Adventure & Active', 'Outdoor & Nature', 'Entertainment', 'Cultural', 'Creative', 'Relaxation & Wellness', 'Romantic', 'Learning', 'Unique']
-icons = ['fa-solid fa-utensils', 'fa-solid fa-champagne-glasses', 'fa-solid fa-music', 'fa-solid fa-bicycle', 'fa-solid fa-tree', 'fa-solid fa-film', 'fa-solid fa-people-arrows', 'fa-solid fa-palette', 'fa-solid fa-spa', 'fa-regular fa-face-grin-hearts', 'fa-solid fa-lines-leaning', 'fa-regular fa-lightbulb" style="color: #42ff68;']
+icons = ['fa-solid fa-utensils', 'fa-solid fa-champagne-glasses', 'fa-solid fa-music', 'fa-solid fa-bicycle', 'fa-solid fa-tree', 'fa-solid fa-film', 'fa-solid fa-people-arrows', 'fa-solid fa-palette', 'fa-solid fa-spa', 'fa-regular fa-face-grin-hearts', 'fa-solid fa-lines-leaning', 'fa-regular fa-lightbulb' ]
 
 categories.each_with_index do |name, index|
   category = Category.create!(title: name, icon: icons[index])
@@ -34,6 +34,7 @@ query = 'cocktail%20bars%20in%20Amsterdam'
 api_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{query}&key=#{api_key}"
 data = HTTParty.get(api_url)
 results = data["results"]
+
 
 results.each do |result|
   place_url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{result["place_id"]}&key=#{api_key}"
