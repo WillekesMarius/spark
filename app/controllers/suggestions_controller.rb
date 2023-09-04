@@ -3,7 +3,7 @@ class SuggestionsController < ApplicationController
 
   def index
     @suggestions = Suggestion.all
-    @my_suggestion = Suggestion.first
+    # @my_suggestion = Suggestion.first
     # loop do
     #   suggestion = suggestions_list.sample
     #   if current_user.swipes.include?(suggestion.id)
