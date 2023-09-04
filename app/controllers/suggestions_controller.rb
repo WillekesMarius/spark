@@ -2,20 +2,22 @@ class SuggestionsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    loop do
-      suggestion = suggestions_list.sample
-      if current_user.swipes.include?(suggestion.id)
-        next
-      else
-        @my_suggestion = suggestion
-        break
-      end
-    end
+    @suggestions = Suggestion.all
+    @my_suggestion = Suggestion.first
+    # loop do
+    #   suggestion = suggestions_list.sample
+    #   if current_user.swipes.include?(suggestion.id)
+    #     next
+    #   else
+    #     @my_suggestion = suggestion
+    #     break
+    #   end
+    # end
   end
 
   def show
     @suggestion = Suggestion.find(params[:id])
-   @markers = [{
+    @markers = [{
       lat: @suggestion.latitude,
       lng: @suggestion.longitude
     }]

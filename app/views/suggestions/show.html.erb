@@ -1,24 +1,23 @@
 
-<div class="card bg-dark text-white" style="height: 150px;">
+<%# <div class="card bg-dark text-white" style="height: 150px;">
   <img class="card-img" src="assets/dashboard.jpeg" alt="Card image">
   <div class="card-img-overlay"></div>
-</div>
-<style>
-/* .marker { */
+</div> %>
+<%# <style> %>
+<%# /* .marker { */
 /*    background-image: asset-url('logo.png');
   background-size: cover;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   cursor: pointer;
-} */
-</style>
+} */ %>
+<%# </style> %>
+<%# <style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; width: 100%; height: 300px }
+</style> %>
 
-  <%# <div id="map" style="margin-top:500px;position: absolute; top: 0; bottom: 0; max-height:400px; width: 100%;z-index:1000;"> %>
-  <div style="width: 100%; height: 500px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <div class="card bg-dark text-white" style="height: 150px;">
   <%= image_tag("dashboard.jpeg", class: "card-img", alt: "Card image") %>
@@ -52,12 +51,35 @@
       </div>
     </div>
   </div>
-  <div style="width: 100%; height: 500px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+  <div id="map" style="margin-top:500px;position: absolute; top: 0; bottom: 0; max-height:400px; width: 100%;z-index:100;">
+  <span class="d-none" id="coordinates" data-longitude="<%= @suggestion.longitude %>" data-latitude="<%= @suggestion.latitude %>"></span>
 
 </div>
+
+<script>
+  const coordinates = document.getElementById('coordinates');
+  mapboxgl.accessToken = 'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
+  console.log(coordinates.dataset.longitude)
+  const map = new mapboxgl.Map({
+  container: 'map',
+  // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+  style: 'mapbox://styles/mapbox/streets-v12',
+  center: [coordinates.dataset.longitude, coordinates.dataset.latitude],
+  zoom: 20
+});
+
+
+   new mapboxgl.Marker()
+  .setLngLat([coordinates.dataset.longitude, coordinates.dataset.latitude])
+   .addTo(map);
+
+
+
+
+</script>
+
+
 
 
 <%# // Add the control to the map.
