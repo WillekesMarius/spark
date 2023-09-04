@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_110308) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_04_104741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_110308) do
     t.date "occurs_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "longitude"
+    t.float "latitude"
     t.index ["suggestion_id"], name: "index_favorites_on_suggestion_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
@@ -37,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_110308) do
     t.bigint "suggestion_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
     t.index ["suggestion_id"], name: "index_reviews_on_suggestion_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -49,11 +52,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_110308) do
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_url"
-    t.integer "rating"
+    t.float "rating"
     t.integer "total_ratings"
     t.string "images", default: [], array: true
     t.string "sub_category"
+    t.string "city"
+    t.string "address"
     t.index ["category_id"], name: "index_suggestions_on_category_id"
   end
 
@@ -68,6 +72,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_110308) do
     t.string "first_name"
     t.string "last_name"
     t.date "date_of_birth"
+    t.string "preferences", default: [], array: true
+    t.integer "swipes", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
