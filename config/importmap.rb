@@ -17,3 +17,4 @@ pin "openai/_shims/node-readable", to: "https://ga.jspm.io/npm:openai@4.2.0/_shi
 pin "openai/core", to: "https://ga.jspm.io/npm:openai@4.2.0/core.mjs"
 pin "openai/pagination", to: "https://ga.jspm.io/npm:openai@4.2.0/pagination.mjs"
 pin "openai/resource", to: "https://ga.jspm.io/npm:openai@4.2.0/resource.mjs"
+pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"

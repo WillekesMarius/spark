@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
 
   <body>
@@ -15,8 +16,8 @@
     <%= render "shared/flashes" %>
 
     <%= yield %>
-    <span id="openai-token" data-token="<%= "Bearer #{ENV['OPENAI_API_KEY']}" %>"></span>
     <%# <p class="notice"><%= notice %>
     <%# <p class="alert"><%= alert %>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </html>
