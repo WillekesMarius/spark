@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log('HELLO')
+
 
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
@@ -18,6 +18,7 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
     // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }))
   }
 
@@ -41,3 +42,4 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 }
+
