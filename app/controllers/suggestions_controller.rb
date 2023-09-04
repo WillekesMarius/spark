@@ -7,6 +7,10 @@ class SuggestionsController < ApplicationController
 
   def show
     @suggestion = Suggestion.find(params[:id])
+   @markers = [{
+      lat: @suggestion.latitude,
+      lng: @suggestion.longitude
+    }]
   end
 
   def favorite
@@ -16,10 +20,9 @@ class SuggestionsController < ApplicationController
     @favorite.suggestion = @suggestion
     redirect_to suggestion_path(@suggestion)
   end
-
+end
   # private
 
   # def favorite_params
   #   permit(:favorite).require(:user_id)
   # end
-end

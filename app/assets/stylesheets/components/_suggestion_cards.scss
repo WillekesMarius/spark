@@ -7,8 +7,6 @@
   font-family: 'Montserrat', sans-serif;
   font-family: 'Open Sans', sans-serif;
   font-family: 'Roboto', sans-serif;
-
-
 }
 
 .suggestion-cards-info {
@@ -16,14 +14,14 @@
   color: black;
   padding-left: 15px;
   padding-bottom: 15px;
-  padding-right: 15px; 
+  padding-right: 15px;
   }
 
 
   p {
     color: rgb(96, 96, 96);
     margin-bottom: 20px;
-    
+
   }
 
   #category-button-show-page-explore {
@@ -42,7 +40,7 @@
     background: transparent;
     text-align: center;
   }
-  
+
   #category-button-show-page-explore:hover {
     background-color: rgba(116, 112, 113, 0.3);
   }
@@ -99,6 +97,14 @@
 
 text-dashboard {
   z-index: 100;
-  
 
+
+}
+
+.img-container {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  // padding-top: 100%;
+  height: 100px;
 }
