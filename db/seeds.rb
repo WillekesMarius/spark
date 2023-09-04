@@ -95,8 +95,7 @@ admin = User.create(
   first_name: "Admin",
   last_name: "Smit",
   email: "admin@email.com",
-  password: "password",
-  preferences: ['Cocktail', 'Italian', 'French', 'Coffee', 'Active', 'Romantic']
+  password: "password"
 )
 
 puts "Created admin to login with: email #{admin.email}, password: 'password'}"
@@ -122,7 +121,7 @@ cities.each do |city|
     case category
     when 'Drinks'
       # sub_categories = ['Cafe', 'Coffee', 'Pubs', 'Cocktail', 'Wine']
-      sub_categories = ['Cafe']
+      sub_categories = ['Coffee']
 
       sub_categories.each do |sub_category|
         puts ""
