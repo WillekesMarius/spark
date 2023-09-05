@@ -84,3 +84,5 @@ gem 'faker'
 gem 'erb-formatter'
 gem "geocoder"
 gem 'mapbox-gl-rails'
+gem "simple_calendar", "~> 2.4"
+
