@@ -15,6 +15,13 @@ class SuggestionsController < ApplicationController
     # end
   end
 
+  def update
+    @suggestion = Suggestion.find(params[:id])
+    
+    @favorite = @suggestion.favorites.where(user_id: current_user.id)
+    @favorite.update(date_params)
+  end
+
   def show
     @suggestion = Suggestion.find(params[:id])
     @favorite = Favorite.new
@@ -24,13 +31,13 @@ class SuggestionsController < ApplicationController
     }]
   end
 
-  def favorite
-    @suggestion = Suggestion.find(params[:id])
-    @favorite = Favorite.create
-    @favorite.user = current_user
-    @favorite.suggestion = @suggestion
-    redirect_to suggestion_path(@suggestion)
-  end
+  # def favorite
+  #   @suggestion = Suggestion.find(params[:id])
+  #   @favorite = Favorite.create
+  #   @favorite.user = current_user
+  #   @favorite.suggestion = @suggestion
+  #   redirect_to suggestion_path(@suggestion)
+  # end
 
   # private
 
@@ -54,4 +61,9 @@ class SuggestionsController < ApplicationController
     end
     return my_suggestions
   end
+
+  def date_params
+    params.require(:favorite).permit(:occurs_on)
+  end
+
 end
