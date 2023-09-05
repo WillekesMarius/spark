@@ -7,8 +7,6 @@
   font-family: 'Montserrat', sans-serif;
   font-family: 'Open Sans', sans-serif;
   font-family: 'Roboto', sans-serif;
-
-
 }
 
 .suggestion-cards-info {
@@ -16,14 +14,14 @@
   color: black;
   padding-left: 15px;
   padding-bottom: 15px;
-  padding-right: 15px; 
+  padding-right: 15px;
   }
 
 
   p {
     color: rgb(96, 96, 96);
     margin-bottom: 20px;
-    
+
   }
 
   #category-button-show-page-explore {
@@ -42,10 +40,31 @@
     background: transparent;
     text-align: center;
   }
-  
+
   #category-button-show-page-explore:hover {
     background-color: rgba(116, 112, 113, 0.3);
   }
+
+  // #category-button-show-page-explore {
+  //   text-decoration: none;
+  //   color: #000000;
+  //   padding: 0.8rem;
+  //   font-family: 'Montserrat', sans-serif;
+  //   font-size: 14px;
+  //   text-transform: uppercase;
+  //   border-radius: 4px;
+  //   font-weight: 400;
+  //   display: block;
+  //   width: 100%;
+  //   cursor: pointer;
+  //   border: 1px solid rgba(132, 127, 127, 0.9);
+  //   background: transparent;
+  //   text-align: center;
+  // }
+
+  // #category-button-show-page-explore:hover {
+  //   background-color: rgba(116, 112, 113, 0.3);
+  // }
 
 //  .card {
 //   border-radius: 10px;
@@ -99,6 +118,13 @@
 
 text-dashboard {
   z-index: 100;
-  
 
+}
+
+.img-container {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  // padding-top: 100%;
+  height: 100px;
 }

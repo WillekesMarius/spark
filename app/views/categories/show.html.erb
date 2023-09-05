@@ -8,14 +8,15 @@
       <%= link_to suggestion_path(suggestion), class: 'text-decoration-none text-dark' do %>
         <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
           <% if suggestion.images.present? %>
-            <%= image_tag(suggestion.images[0], class: "card-img-top") %>
+            <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 250px") %>
+          
           <% else %>
             <%= image_tag("food-01.jpg", class: "card-img-top") %>
           <% end %>
           <div class="suggestion-cards-info">
             <h5
                 class="card-title"
-                style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: -1px; "
+                style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
               ><%= suggestion.title %></h5>
             <div>
               <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
