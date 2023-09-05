@@ -1,10 +1,23 @@
-body {
-  background: white;
-}
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
 
 .avatar-extra-large {
   border-radius: 50%;
+}
 
+#edit-profile-container {
+  padding-top: 30px;
+  padding-bottom: 65px;
+}
+
+#edit-profile-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 1500;
+  color: #A03851;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .form-control:focus {
@@ -45,4 +58,29 @@ align-content: center;
 .back:hover {
   color: #A03851;
   cursor: pointer;
+}
+
+#profile-update-button {
+  background: #A03851;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  box-shadow: none;
+  width: 200px;
+  border: 1px solid #ffffff;
+  padding: 8px 24px;
+  border-radius: 50px;
+}
+
+#cancel-profile-button {
+  background: #A03851;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  box-shadow: none;
+  width: 200px;
+  border: 1px solid #ffffff;
+  padding: 8px 24px;
+  border-radius: 50px;
+
 }
