@@ -17,6 +17,7 @@ pin "openai/_shims/node-readable", to: "https://ga.jspm.io/npm:openai@4.2.0/_shi
 pin "openai/core", to: "https://ga.jspm.io/npm:openai@4.2.0/core.mjs"
 pin "openai/pagination", to: "https://ga.jspm.io/npm:openai@4.2.0/pagination.mjs"
 pin "openai/resource", to: "https://ga.jspm.io/npm:openai@4.2.0/resource.mjs"
+pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
 pin "stimulus-carousel", to: "https://ga.jspm.io/npm:stimulus-carousel@5.0.1/dist/stimulus-carousel.mjs"
 pin "dom7", to: "https://ga.jspm.io/npm:dom7@4.0.6/dom7.esm.js"
 pin "ssr-window", to: "https://ga.jspm.io/npm:ssr-window@4.0.2/ssr-window.esm.js"
