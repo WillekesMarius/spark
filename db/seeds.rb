@@ -21,7 +21,6 @@ def get_photo_references(place)
       photo_references << "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=#{photo_reference}&key=#{API_KEY}"
     end
   end
-
   return photo_references
 end
 
