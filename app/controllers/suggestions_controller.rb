@@ -7,6 +7,7 @@ class SuggestionsController < ApplicationController
 
   def show
     @suggestion = Suggestion.find(params[:id])
+    @favorite = Favorite.new
   end
 
   def favorite

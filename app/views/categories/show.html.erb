@@ -9,7 +9,6 @@
         <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
           <% if suggestion.images.present? %>
             <%= image_tag(suggestion.images[0], class: "card-img-top") %>
-            <%# <i class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i> %>
           <% else %>
             <%= image_tag("food-01.jpg", class: "card-img-top") %>
           <% end %>

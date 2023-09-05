@@ -7,7 +7,20 @@
   box-sizing: border-box;
 }
 
-.love {
+#img-fav {
+  position: relative;
+  display: inline-block;
+}
+
+#heart {
+  position: absolute;
+  color: white;
+  font-size: 28px;
+  top: 24px;
+  right: 18px;
+}
+
+.heart {
   position: absolute;
   right: 40px;
   top: 110px;
