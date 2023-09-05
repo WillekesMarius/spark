@@ -81,4 +81,6 @@ end
 
 gem 'httparty'
 gem 'faker'
-gem 'erb-formatter' 
+gem 'erb-formatter'
+gem "geocoder"
+gem 'mapbox-gl-rails'
