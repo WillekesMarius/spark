@@ -1,64 +1,51 @@
-<!--
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+<div id="edit-profile-container" class= "container rounded bg-white mt-5 pt-5 ">
+  <div id="edit-profile-title">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
   </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="d-flex flex-column align-items-center text-center">
+    <%# <img class="avatar-extra-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" /> %>
+    <%= cl_image_tag current_user.photo.key %>
+      <span class="font-weight-bold"><%= current_user.first_name %>, <%= current_user.last_name %></span>
+    <span class="text-black-50"><%= current_user.email %></span>
   </div>
-<% end %>
-<h3>Cancel my account</h3>
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-<%= link_to "Back", :back %>
--->
-<div class="container rounded bg-white mt-5">   <!-- class= container rounded bg-white mt-5   -->
-  <div class="row">      <!-- class= "row-->
-    <div class="col-md-4 border-right">   <!-- class= " col-md-4 border-right "    -->
-      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-        <img class="avatar-extra-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-        <span class="font-weight-bold">first name, last name</span>
-        <span class="text-black-50">user's email</span>
-        <span>user's location</span>
-      </div>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+     <%= f.input :photo, as: :file %>
+      <%= f.input :first_name, required: true, autofocus: true %>
+      <%= f.input :last_name, required: true, autofocus: true %>
+      <%= f.input :email, required: true, autofocus: true %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+      <%= f.input :password,
+                  hint: "leave it blank if you don't want to change it",
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+                  <div id="preferences-buttons">
+                      <%= f.input :preferences, as: :check_boxes, 
+                                  required: false,
+                                  collection: ['Adventure & Active', 'Outdoor & Nature', 'Entertainment & Cultural', 'Relaxation & Wellness', 'Romantic', 'Unique', 'French', 'American', 'Asian', 'Italian', 'Cafe', 'Coffee', 'Pubs', 'Wine', 'Cocktail'], 
+                                  include_hidden: false %> 
+                  </div>
+      <%= f.input :current_password,
+                  hint: "we need your current password to confirm your changes",
+                  required: true,
+                  input_html: { autocomplete: "current-password" } %>
     </div>
-    <div class="col-md-8">
-      <div class="p-1 py-1 ">
-        <div class="d-flex align-items-center mb-3">
-          <div class="d-flex flex-row back">
-            <h2>Edit Profile</h2>
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-md-6 p-3"><input type="text" class="form-control" placeholder="first name" value="user's first name"></div>
-          <div class="col-md-6 p-3"><input type="text" class="form-control" value="user's last name" placeholder="last name"></div>
-          <div class="col-md-6 p-3"><input type="text" class="form-control" placeholder="Email" value="users email"></div>
-          <div class="col-md-6 p-3"><input type="text" class="form-control" value="phone number" placeholder="Phone number"></div>
-        </div>
-        <div class="mt-1 d-flex flex-column align-items-center">
-          <%# <%= link_to edit_user_registration_path do %>
-            <button class="btn btn-primary profile-button align-items-center" type="button">Save Profile</button>
-        </div>
-            <%# <%= link_to edit_user_registration_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
-        <div class="mt-1 d-flex flex-column align-items-center">
-            <button class="btn btn-primary profile-button align-items-center" type="button">Cancel Account</button>
-        </div>
-      </div>
+
+    <div class="form-actions" id="profile-update-button" style= "text-align: center">
+      <%= f.button :submit, "Update" %>
     </div>
+  <% end %>
+  <h2>Cancel my account</h2>
+  <div id="cancel-profile-button" >
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
   </div>
+    <div class="btn btn-ghost">
+      <%= link_to "Back", :back %>
+    </div>
 </div>

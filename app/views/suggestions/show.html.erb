@@ -1,9 +1,9 @@
 
-      <div class="card bg-dark text-white" style="height: 150px;">
-        <%= image_tag("dashboard.jpeg", class: "card-img", alt: "Card image") %>
-        <div class="card-img-overlay"></div>
-      </div>
-
+<div class="card bg-dark text-white" style="height: 150px;">
+  <%= image_tag("dashboard.jpeg", class: "card-img", alt: "Card image") %>
+  <div class="card-img-overlay"></div>
+</div>
+    
       <div class="container" style="margin-top: 20px">
         <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
           <% if @suggestion.images.present? %>
@@ -12,10 +12,26 @@
               class: "card-img-top",
               style: "max-height: 250px"
             ) %>
-            <%# <i class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i> %>
+           
           <% else %>
             <%= image_tag("food-01.jpg", class: "card-img-top") %>
           <% end %>
+          <div>
+        <% if current_user %>
+          <% if current_user.favorites.where(suggestion: @suggestion).empty? %>
+            <%= simple_form_for [@suggestion, @favorite] do |f| %>
+              <%= f.button :button do %>
+                <i id="heart" class="fa-regular fa-heart fa-xl"></i>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to favorite_path(current_user.favorites.where(suggestion: @suggestion).first), data: {turbo_method: :delete} do %>
+              <i id="heart" class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
           <div class="suggestion-cards-info">
             <h5
               class="card-title"
@@ -101,14 +117,4 @@ fetch(apiUrl)
     });
     </script>
 
-      <%# // Add the control to the map.
-// map.addControl(
-// new MapboxGeocoder({
-// accessToken: mapboxgl.accessToken,
-// mapboxgl: mapboxgl
-// })
-// );
-const el = document.createElement('div');
-  el.className = 'marker';
-
-//   // make a marker for each feature and add to the map %>
+      

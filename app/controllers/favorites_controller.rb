@@ -1,22 +1,20 @@
 class FavoritesController < ApplicationController
-  def new
+
+  def index
+    @favorites = Favorite.all
   end
 
   def create
-  end
-
-  def edit
-  end
-
-  def update
+    @user = current_user
+    @suggestion = Suggestion.find(params[:suggestion_id])
+    @favorite = Favorite.new
+    @favorite.user = @user
+    @favorite.suggestion = @suggestion
+    @favorite.save
   end
 
   def destroy
-  end
-
-  def favorite
-    @suggestion = Suggestion.find(params[:favorite_id])
-    Favorite.create(user_id: current_user.id, suggestion_id: @suggestion.id)
-    redirect_to suggestion_path(@suggestion)
+    @favorite = Favorite.find(params[:id])
+    @favorite.destroy
   end
 end

@@ -17,6 +17,7 @@ class SuggestionsController < ApplicationController
 
   def show
     @suggestion = Suggestion.find(params[:id])
+    @favorite = Favorite.new
     @markers = [{
       lat: @suggestion.latitude,
       lng: @suggestion.longitude

@@ -1,1 +1,18 @@
-<h1>Test</h1>
+<div id="profile-container" class= "container rounded bg-white mt-2 pt-3">
+  <div id="profile-container-with-avatar" class="d-flex flex-column align-items-center text-center">
+    <img class="avatar-extra-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+    <span class="lead"><%= current_user.first_name %>, <%= current_user.last_name %></span>
+    <span class="text-black-50"><%= current_user.email %></span>
+  </div>
+    <div class= "d-flex mt-2">
+      <%= link_to edit_user_registration_path do %>
+        <button class="btn btn-ghost d-flex">Edit Profile</button>
+    <%end%>
+      </div>
+  <div id="cancel-profile-button" >
+    <%= link_to "Cancel my account", edit_user_registration_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+  </div>
+  <div class="btn">
+    <%= link_to "Back", :back %>
+  </div>
+</div>
