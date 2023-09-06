@@ -14,6 +14,8 @@
     <% @suggestions.each do |suggestion| %>
       <div class="swiper-slide" data-suggestion-id="<%= suggestion.id %>">
         <div class="card p-3 ">
+          <div class='img-container' style="background-image: url(<%= image_path('food-01.jpg') %>); min-height: 500px; margin-top: 30px">
+        </div>
           <div
                class='img-container'
 
@@ -27,11 +29,10 @@
                    <% else %>
                      <%= image_tag("food-01.jpg", style: "min-height: 400px;margin-top: 30px, max-width:500px;") %>
                    <% end %>
-
-    
           </div>
           <%= suggestion.title %>
         </div>
+        
       </div>
     <% end %>
   </div>

@@ -40,8 +40,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between fixed-top mb-5">
   <div style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px; margin-right: 20px">
     <span></span>
-      <button class="navbar-toggler px-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" >
-      <span class="navbar-toggler-icon"></span>
+
+    <div style="margin-right: 15px; margin-top: 5px; margin-bottom: 5px;">
+        <a class="navbar-profile-icon"></a>
+          <%= link_to :back do %>
+        <span class="user-icon brand-text">
+          <i class="fa-solid fa-arrow-left"></i>
+        </span>
+        <% end %>
+      </div>
+      <%# <button class="navbar-toggler px-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" > %>
+      <%# <span class="navbar-toggler-icon"></span> %>
     </button>
   </div>
   <%= image_tag("logo-color.png", alt: "Spark-logo", style: "width:25%;") %>
