@@ -85,7 +85,7 @@
       <p>
         <%= @suggestion.overview %>
       </p>
-    </div>
+    </p>
   </div>
 </div>
 <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
@@ -110,6 +110,10 @@
   </div>
 </div>
 <script>
+  const carousel = new bootstrap.Carousel('#myCarousel', {
+    interval: 1000
+  })
+
   const coordinates = document.getElementById('coordinates');
     const addressElement = document.getElementById('address');
 
