@@ -117,8 +117,7 @@ categories.each_with_index do |name, index|
 end
 
 puts ""
-# cities = ["Amsterdam", "Rotterdam", "The Hague"]
-cities = ["Amsterdam"]
+cities = ["Amsterdam", "Rotterdam", "The Hague"]
 
 cities.each do |city|
   puts "Creating suggestions for #{city}"
@@ -126,8 +125,7 @@ cities.each do |city|
   categories.each do |category|
     case category
     when 'Drinks'
-      sub_categories = ['Cafe']
-      # sub_categories = ['Cafe', 'Coffee', 'Pubs', 'Cocktail', 'Wine']
+      sub_categories = ['Cafe', 'Coffee', 'Pubs', 'Cocktail', 'Wine']
 
       sub_categories.each do |sub_category|
         puts ""
@@ -135,8 +133,7 @@ cities.each do |city|
         create_suggestions("#{sub_category}%20in%20#{city}", city, category, sub_category)
       end
     when 'Dining'
-      # sub_categories = ['Italian', 'French', 'Asian', 'American']
-      sub_categories = ['Italian']
+      sub_categories = ['Italian', 'French', 'Asian', 'American']
 
       sub_categories.each do |sub_category|
         puts ""
