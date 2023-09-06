@@ -90,7 +90,7 @@ def iterate_openai_ideas(category, city)
 end
 
 puts "Cleaning database"
-
+Favorite.destroy_all
 Suggestion.destroy_all
 Category.destroy_all
 

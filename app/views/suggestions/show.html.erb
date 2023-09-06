@@ -30,16 +30,19 @@
     </div>
   </div>
 
-
-  <div id='spark-dates'>
-    <% if current_user.favorites.find_by(suggestion_id: @suggestion.id) %>
-      <%= simple_form_for(current_user.favorites.find_by(suggestion_id: @suggestion.id)) do |f| %>
-        <%= f.input :occurs_on, 
-              as: :string, 
-              input_html: { data: { controller: "datepicker"}} %>
-        <%= f.submit "Create Spark", class:"btn btn-ghost" %>
-      <% end %>
-    <% end %>
+  <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+    <div class="suggestion-cards-info">
+      <div id='spark-dates'>
+        <% if current_user.favorites.find_by(suggestion_id: @suggestion.id) %>
+          <%= simple_form_for(current_user.favorites.find_by(suggestion_id: @suggestion.id)) do |f| %>
+            <%= f.input :occurs_on,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker"}} %>
+            <%= f.submit "Create Spark", class:"btn btn-ghost" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 <div>
 
@@ -48,33 +51,32 @@
   <% end %>
 
 </div>
-
-
-  <h5
-      class="card-title"
-      style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
-    ><%= @suggestion.title %></h5>
-  <div>
-    <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
-      <%= @suggestion.city %>
-      &nbsp;
-      <%= @suggestion.sub_category %>
-      &nbsp;
-      <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
-        <%= @suggestion.rating %></i>
-      <p class="pt-0 pb-0 mb-0">Description:</p>
-      <p>
-        <%= @suggestion.overview %>
-      </p>
-    </p>
-  </div>
-</div>
-</div>
 <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
   <div class="suggestion-cards-info">
     <h5
-              class="card-title"
-              style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
+        class="card-title"
+        style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px;"
+      ><%= @suggestion.title %></h5>
+    <div>
+      <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
+        <%= @suggestion.city %>
+        &nbsp;
+        <%= @suggestion.sub_category %>
+        &nbsp;
+        <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
+          <%= @suggestion.rating %></i>
+        <p class="pt-0 pb-0 mb-0">Description:</p>
+        <p>
+          <%= @suggestion.overview %>
+        </p>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+  <div class="suggestion-cards-info">
+    <h5 class="card-title"
+              style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
             >Location</h5>
     <p> Address: <span id="address"> </span> </p>
     <div style="min-height:250px; margin-bottom:5px; z-index:0;">
