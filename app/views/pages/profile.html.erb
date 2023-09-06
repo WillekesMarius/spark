@@ -32,27 +32,26 @@
               <%= current_user.first_name %> <%= current_user.last_name %>
             </div>
           </div>
+          <div>
+            <p class="lead fw-normal mb-1">Interests</p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-outline-danger" style="border-radius: 20px; width: 120px; background-color: $brand-color;">Adventure & Active</button>
+            <button type="button" class="btn btn-outline-danger" style="border-radius: 20px; width: 120px; color: $brand-color;">Romantic</button>
+            <button type="button" class="btn btn-outline-danger" style="border-radius: 20px; width: 120px; color: $brand-color;">Outdoor</button>
+          </div>
           <div class="p-4 text-black" style="background-color: #f8f9fa;">
             <div id="edit-profile-button">
               <%= link_to edit_user_registration_path do %>
                 <button class="btn btn-ghost d-flex" style= "text-decoration: none; padding: 10px; justify-content: center;" >Edit Profile</button>
               <%end%>
             </div>
-            <div class="card-body p-4 text-black">
-              <div class="mb-5">
-                <p class="lead fw-normal mb-1">Interests</p>
-                <div class="p-4" style="background-color: #f8f9fa;">
-                  <p class="font-montserrat mb-1">Adventure & Active</p>
-                  <p class="font-montserrat mb-1">Romantic</p>
-                  <p class="font-montserrat mb-0">Outdoor</p>
-                </div>
-              </div>
-              <div id="cancel-profile-button" >
-                <%= link_to "Cancel my account", edit_user_registration_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
-              </div>
+            <div class="btn btn-ghost" >
+              <%= link_to "Cancel my account", edit_user_registration_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
