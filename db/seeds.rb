@@ -55,17 +55,21 @@ def create_suggestions(query, city, category, sub_category)
   end
 end
 
-def seed_database_openai(title, description, address, rating, city, category)
+def seed_database_openai(title, description, address, rating, image_url, city, category)
+  image_urls = []
+  image_urls << image_url
+
   suggestion = Suggestion.create!(
     title: title,
     overview: description,
     address: address,
     rating: rating,
+    images: image_urls,
     city: city,
     category: Category.find_by(title: category)
   )
   puts "Created #{suggestion.title}"
-end
+end 
 
 def iterate_openai_ideas(category, city)
   puts ""
@@ -81,7 +85,7 @@ def iterate_openai_ideas(category, city)
   end
 
   date_ideas.each do |idea|
-    seed_database_openai(idea[:title], idea[:description], idea[:address], idea[:rating], city, category)
+    seed_database_openai(idea[:title], idea[:description], idea[:address], idea[:rating], idea[:image_url], city, category)
   end
 end
 
@@ -119,8 +123,7 @@ cities.each do |city|
   categories.each do |category|
     case category
     when 'Drinks'
-      # sub_categories = ['Cafe', 'Coffee', 'Pubs', 'Cocktail', 'Wine']
-      sub_categories = ['Coffee']
+      sub_categories = ['Cafe', 'Coffee', 'Pubs', 'Cocktail', 'Wine']
 
       sub_categories.each do |sub_category|
         puts ""
@@ -128,8 +131,7 @@ cities.each do |city|
         create_suggestions("#{sub_category}%20in%20#{city}", city, category, sub_category)
       end
     when 'Dining'
-      # sub_categories = ['Italian', 'French', 'Asian', 'American']
-      sub_categories = ['Italian']
+      sub_categories = ['Italian', 'French', 'Asian', 'American']
 
       sub_categories.each do |sub_category|
         puts ""

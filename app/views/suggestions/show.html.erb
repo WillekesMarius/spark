@@ -1,72 +1,67 @@
-
-      <div class="card bg-dark text-white" style="height: 150px;">
-        <%= image_tag("dashboard.jpeg", class: "card-img", alt: "Card image") %>
-        <div class="card-img-overlay"></div>
-      </div>
-
-      <div class="container" style="margin-top: 20px">
-        <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
-          <% if @suggestion.images.present? %>
-            <%= image_tag(
+<div class="card bg-dark text-white" style="height: 150px;">
+  <%= image_tag("dashboard.jpeg", class: "card-img", alt: "Card image") %>
+  <div class="card-img-overlay"></div>
+</div>
+<div class="container" style="margin-top: 20px">
+  <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+    <% if @suggestion.images.present? %>
+      <%= image_tag(
               @suggestion.images[0],
               class: "card-img-top",
               style: "max-height: 250px"
             ) %>
-            <%# <i class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i> %>
-          <% else %>
-            <%= image_tag("food-01.jpg", class: "card-img-top") %>
-          <% end %>
-          <div class="suggestion-cards-info">
-            <h5
+      <%# <i class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i> %>
+    <% else %>
+      <%= image_tag("food-01.jpg", class: "card-img-top") %>
+    <% end %>
+    <div class="suggestion-cards-info">
+      <h5
               class="card-title"
               style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
             ><%= @suggestion.title %></h5>
-            <div>
-              <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
-                <%= @suggestion.city %>
-                &nbsp;
-                <%= @suggestion.sub_category %>
-                &nbsp;
-                <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
-                  <%= @suggestion.rating %></i>
-                <p class="pt-0 pb-0 mb-0">Description:</p>
-                <p>
-                  <%= @suggestion.overview %>
-                </p>
-              </p>
-
-            </div>
-          </div>
-        </div>
-        <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
-          <div class="suggestion-cards-info">
-            <h5
+      <div>
+        <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
+          <%= @suggestion.city %>
+          &nbsp;
+          <%= @suggestion.sub_category %>
+          &nbsp;
+          <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
+            <%= @suggestion.rating %></i>
+          <p>
+            <%= @suggestion.overview %>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+    <div class="suggestion-cards-info">
+      <h5
               class="card-title"
               style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
             >Location</h5>
-            <p> Address: <span id="address"> </span> </p>
-            <div style="min-height:250px; margin-bottom:5px; z-index:0;">
-              <div
+      <p> Address: <span id="address"> </span> </p>
+      <div style="min-height:250px; margin-bottom:5px; z-index:0;">
+        <div
                 id="map"
                 style="position: relative; top: 15; width: 100%; min-height: 200px;"
               >
-                <span
+          <span
                   class="d-none"
                   id="coordinates"
                   data-longitude="<%= @suggestion.longitude %>"
                   data-latitude="<%= @suggestion.latitude %>"
                 ></span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-
-      <script>
+    </div>
+  </div>
+</div>
+<script>
   const coordinates = document.getElementById('coordinates');
     const addressElement = document.getElementById('address');
 
-  accessToken=  'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
+  accessToken = 'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
   mapboxgl.accessToken = accessToken;
   console.log(coordinates.dataset.longitude)
   const map = new mapboxgl.Map({
@@ -75,7 +70,7 @@
   style: 'mapbox://styles/mapbox/streets-v12',
   center: [coordinates.dataset.longitude, coordinates.dataset.latitude],
   zoom: 15
-});
+  });
 
 
    new mapboxgl.Marker()
@@ -84,7 +79,7 @@
 
    const apiUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates.dataset.longitude},${coordinates.dataset.latitude}.json?access_token=${accessToken}`;
     // Make a GET request to the API
-fetch(apiUrl)
+  fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
         if (data.features && data.features.length > 0) {
@@ -99,9 +94,20 @@ fetch(apiUrl)
         console.error('Error fetching address:', error);
         addressElement.textContent = 'Error fetching address';
     });
-    </script>
 
-      <%# // Add the control to the map.
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        // When active the map will receive updates to the device's location as it changes.
+        trackUserLocation: true,
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
+        showUserHeading: true
+      })
+    );
+</script>
+<%# // Add the control to the map.
 // map.addControl(
 // new MapboxGeocoder({
 // accessToken: mapboxgl.accessToken,

@@ -5,7 +5,7 @@ $ideas_amsterdam = {
       "title": "Indoor Skydiving",
       "description": "Experience the thrill of skydiving in a safe indoor environment with a powerful vertical wind tunnel at Windoor Amsterdam. It's an adrenaline-pumping adventure that will make your date unforgettable.",
       "address": "Radarweg 501, 1043NZ Amsterdam",
-      "rating": 4.8
+      "rating": 4.8,
     },
     {
       "title": "Escape Room Challenge",
