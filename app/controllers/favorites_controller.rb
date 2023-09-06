@@ -16,8 +16,12 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new
     @favorite.user = @user
     @favorite.suggestion = @suggestion
-    @favorite.save
-    redirect_to suggestion_path(@suggestion)
+    if @favorite.save
+      render json: @favorite, status: :created
+    else
+      render json: { errors: @favorite.errors.full_messages }, status: :unprocessable_entity
+    end
+   # redirect_to suggestion_path(@suggestion)
   end
 
   def destroy
@@ -34,5 +38,7 @@ class FavoritesController < ApplicationController
   def favorite_params
     params.require(:favorite).permit(:occurs_on)
   end
-
 end
+
+
+
