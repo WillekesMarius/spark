@@ -92,12 +92,11 @@
     </div>
   </div>
 </div>
-</div>
 <script>
   const coordinates = document.getElementById('coordinates');
     const addressElement = document.getElementById('address');
 
-  accessToken=  'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
+  accessToken = 'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
   mapboxgl.accessToken = accessToken;
   console.log(coordinates.dataset.longitude)
   const map = new mapboxgl.Map({
