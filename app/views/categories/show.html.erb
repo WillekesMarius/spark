@@ -31,10 +31,10 @@
       <%= link_to suggestion_path(suggestion), class: 'text-decoration-none text-dark' do %>
         <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
           <% if suggestion.images.present? %>
-            <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 250px") %>
-          
+            <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 250px; object-fit: cover") %>
+
           <% else %>
-            <%= image_tag("food-01.jpg", class: "card-img-top") %>
+            <%= image_tag("https://source.unsplash.com/random/?date", class: "card-img-top") %>
           <% end %>
           <div class="suggestion-cards-info">
             <h5
