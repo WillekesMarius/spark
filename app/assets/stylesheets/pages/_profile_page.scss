@@ -1,13 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+
 #profile-container-with-avatar {
   padding-top: 90px;
   padding-bottom: 65px;
 }
 
+#edit-profile-button {
+  text-decoration: none;
+  color: #000000;
+  
+
+}
+
+.ms-3 {
+  margin-top: 230px; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 23px;
+  color: black;
+  padding-bottom: 10px;
+
+}
+
 .btn-ghost {
   display: flex;
+  justify-content: center;
+  text-decoration: none;
   color: #000000;
   border: 1px solid #403e3e;
-  padding: 8px 24px;
+  padding: 5px 15px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
@@ -18,3 +40,14 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+///////////////////
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #d69dab;
+  
+  /* Chrome 10-2
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right,rgb(226, 205, 210), rgb(189, 109, 127))
+  }

@@ -7,33 +7,13 @@
   box-sizing: border-box;
 }
 
-#favorite-page-tabs {
-  padding-top: 25px;
-  align-items: center;
-  justify-content: center;
-}
-
-.tabs-underlined {
+#favorites-page-title {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tabs-underlined .tab-underlined {
-  color: #A03851;
-  padding: 8px;
-  margin: 8px;
-  opacity: .4;
-  cursor: pointer;
-  text-decoration: none;
-  border-bottom: 4px solid transparent;
-}
-
-.tabs-underlined .tab-underlined.active {
-  opacity: 1;
-  border-bottom: 3px solid #A03851;
+  font-size: 35px;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 
