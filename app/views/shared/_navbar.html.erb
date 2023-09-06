@@ -37,7 +37,7 @@
   </div>
 </div>
 -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between fixed-top mb-5">
   <div style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px; margin-right: 20px">
     <span></span>
       <button class="navbar-toggler px-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" >
@@ -47,10 +47,12 @@
   <%= image_tag("logo-color.png", alt: "Spark-logo", style: "width:25%;") %>
 
   <div style="margin-right: 20px; margin-top: 5px; margin-bottom: 5px;">
-    <a class="navbar-profile-icon" href="#"></a>
+    <a class="navbar-profile-icon"></a>
+      <%= link_to profile_path do %>
     <span class="user-icon brand-text">
       <i class="fa-solid fa-user fa-lg"></i>
     </span>
+    <% end %>
   </div>
 </nav>
 
@@ -66,9 +68,12 @@
     <div>
 
       <span class="user-icon brand-text">
-        <i class="fa-solid fa-heart fa-lg"></i>
+        <%= link_to favorites_path, class: "brand-text" do %>
+          <i class="fa-solid fa-heart fa-lg"></i>
+        <% end %>
       </span>
     </div>
+
     <div>
       <%= link_to categories_path do %>
         <span class="user-icon" style="color: #992944; margin-right: 10px;">

@@ -10,49 +10,84 @@
               class: "card-img-top",
               style: "max-height: 250px"
             ) %>
-      <%# <i class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i> %>
     <% else %>
       <%= image_tag("food-01.jpg", class: "card-img-top") %>
     <% end %>
-    <div class="suggestion-cards-info">
-      <h5
-              class="card-title"
-              style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
-            ><%= @suggestion.title %></h5>
-      <div>
-        <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
-          <%= @suggestion.city %>
-          &nbsp;
-          <%= @suggestion.sub_category %>
-          &nbsp;
-          <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
-            <%= @suggestion.rating %></i>
-          <p>
-            <%= @suggestion.overview %>
-          </p>
-        </p>
-      </div>
+    <div style='height: 0px'>
+      <% if current_user %>
+        <% if current_user.favorites.where(suggestion: @suggestion).empty? %>
+          <%= simple_form_for [@suggestion, @favorite] do |f| %>
+            <%= f.button :button do %>
+              <i id="heart" class="fa-regular fa-heart fa-xl"></i>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to favorite_path(current_user.favorites.where(suggestion: @suggestion).first), data: {turbo_method: :delete} do %>
+            <i id="heart" class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
-  <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
-    <div class="suggestion-cards-info">
-      <h5
+
+
+  <div id='spark-dates'>
+    <% if current_user.favorites.find_by(suggestion_id: @suggestion.id) %>
+      <%= simple_form_for(current_user.favorites.find_by(suggestion_id: @suggestion.id)) do |f| %>
+        <%= f.input :occurs_on, 
+              as: :string, 
+              input_html: { data: { controller: "datepicker"}} %>
+        <%= f.submit "Create Spark", class:"btn btn-ghost" %>
+      <% end %>
+    <% end %>
+  </div>
+<div>
+
+  <% unless !current_user.favorites.nil? %>
+    <p>YOU ARE LONELY. DEAL WITH IT</p>
+  <% end %>
+
+</div>
+
+
+  <h5
+      class="card-title"
+      style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
+    ><%= @suggestion.title %></h5>
+  <div>
+    <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
+      <%= @suggestion.city %>
+      &nbsp;
+      <%= @suggestion.sub_category %>
+      &nbsp;
+      <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
+        <%= @suggestion.rating %></i>
+      <p class="pt-0 pb-0 mb-0">Description:</p>
+      <p>
+        <%= @suggestion.overview %>
+      </p>
+    </p>
+  </div>
+</div>
+</div>
+<div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+  <div class="suggestion-cards-info">
+    <h5
               class="card-title"
               style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
             >Location</h5>
-      <p> Address: <span id="address"> </span> </p>
-      <div style="min-height:250px; margin-bottom:5px; z-index:0;">
-        <div
+    <p> Address: <span id="address"> </span> </p>
+    <div style="min-height:250px; margin-bottom:5px; z-index:0;">
+      <div
                 id="map"
                 style="position: relative; top: 15; width: 100%; min-height: 200px;"
               >
-          <span
+        <span
                   class="d-none"
                   id="coordinates"
                   data-longitude="<%= @suggestion.longitude %>"
                   data-latitude="<%= @suggestion.latitude %>"
                 ></span>
-        </div>
       </div>
     </div>
   </div>
@@ -73,48 +108,25 @@
   });
 
 
-   new mapboxgl.Marker()
+  new mapboxgl.Marker()
   .setLngLat([coordinates.dataset.longitude, coordinates.dataset.latitude])
-   .addTo(map);
+  .addTo(map);
 
-   const apiUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates.dataset.longitude},${coordinates.dataset.latitude}.json?access_token=${accessToken}`;
+  const apiUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates.dataset.longitude},${coordinates.dataset.latitude}.json?access_token=${accessToken}`;
     // Make a GET request to the API
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-        if (data.features && data.features.length > 0) {
-            const firstFeature = data.features[0];
-            const address = firstFeature.place_name;
-            addressElement.textContent = address;
-        } else {
-            addressElement.textContent = 'Address not found';
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching address:', error);
-        addressElement.textContent = 'Error fetching address';
-    });
-
-    map.addControl(
-      new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true
-        },
-        // When active the map will receive updates to the device's location as it changes.
-        trackUserLocation: true,
-        // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true
-      })
-    );
+      if (data.features && data.features.length > 0) {
+          const firstFeature = data.features[0];
+          const address = firstFeature.place_name;
+          addressElement.textContent = address;
+      } else {
+          addressElement.textContent = 'Address not found';
+      }
+  })
+  .catch(error => {
+      console.error('Error fetching address:', error);
+      addressElement.textContent = 'Error fetching address';
+  });
 </script>
-<%# // Add the control to the map.
-// map.addControl(
-// new MapboxGeocoder({
-// accessToken: mapboxgl.accessToken,
-// mapboxgl: mapboxgl
-// })
-// );
-const el = document.createElement('div');
-  el.className = 'marker';
-
-//   // make a marker for each feature and add to the map %>

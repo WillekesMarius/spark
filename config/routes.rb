@@ -3,11 +3,15 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :suggestions, only: %i[index show]
-  resources :favorites, only: %i[edit update destroy] do
-    get "", to: "favorites#favorite", as: "create"
+  resources :suggestions, only: %i[index show] do
+    resources :favorites, only: %i[create]
   end
+
+  resources :favorites, only: %i[destroy index update]
 
   resources :reviews, only: %i[show new create]
   resources :categories, only: %i[index show]
+  resources :chatgpt, only: %i[index]
+  resources :pages, only: %i[index profile]
+    get "/profile", to: "pages#profile", as: "profile"
 end

@@ -7,7 +7,33 @@
   box-sizing: border-box;
 }
 
-.love {
+#spark-dates {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 150;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: #948e8e;
+}
+
+
+#img-fav {
+  position: relative;
+  display: inline-block;
+}
+
+#heart {
+  position: absolute;
+  color: white;
+  font-size: 28px;
+  top: 24px;
+  right: 18px;
+}
+
+.heart {
   position: absolute;
   right: 40px;
   top: 110px;
