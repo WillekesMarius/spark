@@ -1,3 +1,4 @@
+<!-- 
 <div id="profile-container" class= "container rounded bg-white mt-2 pt-3">
   <div id="profile-container-with-avatar" class="d-flex flex-column align-items-center text-center">
     <img class="avatar-extra-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
@@ -16,3 +17,41 @@
     <%= link_to "Back", :back %>
   </div>
 </div>
+-->
+///////////////////////////////////// 
+<section class="h-100 gradient-custom-2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card">
+          <div class="rounded-top text-white d-flex flex-row">
+            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px; justify-content: between;">
+              <%= image_tag("Avatar.jpg", class: "avatar-extra-large") %>
+            </div>
+            <div class="ms-3">
+              <%= current_user.first_name %> <%= current_user.last_name %>
+            </div>
+          </div>
+          <div>
+            <p class="lead fw-normal mb-1">Interests</p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-outline-danger" style="border-radius: 20px; width: 120px; background-color: $brand-color;">Adventure & Active</button>
+            <button type="button" class="btn btn-outline-danger" style="border-radius: 20px; width: 120px; color: $brand-color;">Romantic</button>
+            <button type="button" class="btn btn-outline-danger" style="border-radius: 20px; width: 120px; color: $brand-color;">Outdoor</button>
+          </div>
+          <div class="p-4 text-black" style="background-color: #f8f9fa;">
+            <div id="edit-profile-button">
+              <%= link_to edit_user_registration_path do %>
+                <button class="btn btn-ghost d-flex" style= "text-decoration: none; padding: 10px; justify-content: center;" >Edit Profile</button>
+              <%end%>
+            </div>
+            <div class="btn btn-ghost" >
+              <%= link_to "Cancel my account", edit_user_registration_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

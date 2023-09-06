@@ -1,41 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <title>Swiper demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-
   <style>
-
-
     swiper-container {
-      width: 340px;
-      height: 420px;
+      width: 360px;
+      height: 400px;
     }
 
     swiper-slide {
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 18px;
+      border-radius: 10px;
       font-size: 22px;
       font-weight: bold;
       color: #fff;
       background-color: rgb(255, 255, 255);
     }
-
-
   </style>
-
-
-</head>
-
-<body>
 <div class="cover">
 
-  <div class="card bg-dark text-white image-container" style="height: 150px;">
-    <%= image_tag("dashboard-2.jpeg", class: "card-img", alt: "Card image") %>
+  <div class="card bg-dark text-white image-container" style="max-height: 150px; object-fit: cover">
+    <%= image_tag("dashboard-3.jpeg", class: "card-img", style: "margin-top:40px;max-height: 150px; ") %>
   <!--  <div class="gradient-overlay"></div> -->
    <p
     class='text-dashboard'
@@ -45,28 +28,32 @@
 </div>
 
 
-  <swiper-container class="mySwiper" style="margin-top:150px;" effect="cards" grab-cursor="true">
+  <swiper-container class="mySwiper" style="margin-top:40px;" effect="cards" grab-cursor="true">
 
-
-      <% @suggestions.each do |suggestion| %>
+ <% random_suggestions = @suggestions.sample(20) %>
+      <% random_suggestions.each do |suggestion| %>
        <swiper-slide data-suggestion-id="<%= suggestion.id %>">
 
        <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
           <% if suggestion.images.present? && suggestion.images[0].present? %>
-  <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 250px") %>
+  <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 350px; overflow:hidden;") %>
 <% else %>
-  <%= image_tag("food-01.jpg", class: "card-img-top") %>
+  <%= image_tag("food-01.jpg", class: "card-img-top", style: "max-height: 370px") %>
 <% end %>
   <div class="suggestion-cards-info">
     <h5
         class="card-title"
         style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px;"
-      ><%= suggestion.title %></h5>
+      >
+      <% if suggestion.title.length > 25 %>
+  <%= suggestion.title[0..22] %>...
+<% else %>
+  <%= suggestion.title %>
+<% end %></h5>
     <div>
       <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
         <%= suggestion.city %>
         &nbsp;
-        <%= suggestion.sub_category %>
         &nbsp;
         <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
           <%= suggestion.rating %></i>
@@ -95,15 +82,28 @@
         const suggestionId = card.getAttribute('data-suggestion-id');
         removeFromFavorites(suggestionId);
        });
+
+       suggestionCard.on('tap', function () {
+        const suggestionId = card.getAttribute('data-suggestion-id');
+        onTap(suggestionId);
+       });
+
       suggestionCard.on('swiperight', function () {
-
       const suggestionId = card.getAttribute('data-suggestion-id');
-                      console.log('Swipet right:', suggestionId);
-
        addToFavorites(suggestionId);
       });
+
+
       });
 
+   function onTap(suggestionId) {
+        console.log('Tapped Me', suggestionId);
+        newPageURL = "/suggestions/" + suggestionId; // Replace with your desired URL
+
+      // Use window.location.href to navigate to the new page
+      window.location.href = newPageURL;
+
+      }
       function removeFromFavorites(suggestionId) {
         console.log('Swipet left:', suggestionId);
       }
@@ -130,7 +130,3 @@
       });
       }
       </script>
-
-</body>
-
-</html>

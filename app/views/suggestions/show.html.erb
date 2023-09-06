@@ -1,22 +1,49 @@
-<div class="card bg-dark text-white" style="height: 150px;">
-  <%= image_tag("dashboard.jpeg", class: "card-img", alt: "Card image") %>
-  <div class="card-img-overlay"></div>
-</div>
-<div class="container" style="margin-top: 20px">
+
+<div class="container" style="margin-top: 70px">
+
   <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
-    <% if @suggestion.images.present? %>
-      <%= image_tag(
-              @suggestion.images[0],
-              class: "card-img-top",
-              style: "max-height: 250px"
-            ) %>
+    <% if @suggestion.images.empty? %>
+      <%= image_tag("https://source.unsplash.com/random/?date", class: "card-img-top") %>
     <% else %>
-      <%= image_tag("food-01.jpg", class: "card-img-top") %>
+      <div id="myCarousel" class="carousel slide carousel-fade" data-bs-touch="true" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag(
+                @suggestion.images[0],
+                class: "card-img-top",
+                style: "max-height: 250px; object-fit: cover",
+                alt: "date"
+              ) %>
+          </div>
+          <% @suggestion.images.drop(1).each do |image| %>
+            <div class="carousel-item">
+              <%= image_tag(
+                  image,
+                  class: "card-img-top",
+                  style: "max-height: 250px; object-fit: cover",
+                  alt: "date"
+                ) %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     <% end %>
+
+
+
     <div style='height: 0px'>
       <% if current_user %>
         <% if current_user.favorites.where(suggestion: @suggestion).empty? %>
           <%= simple_form_for [@suggestion, @favorite] do |f| %>
+            <input type="hidden" id="referrer" name="referrer" value="show" />
             <%= f.button :button do %>
               <i id="heart" class="fa-regular fa-heart fa-xl"></i>
             <% end %>
@@ -38,7 +65,7 @@
             <%= f.input :occurs_on,
                   as: :string,
                   input_html: { data: { controller: "datepicker"}} %>
-            <%= f.submit "Create Spark", class:"btn btn-ghost" %>
+            <%= f.submit "Create Spark", id:"create-spark" %>
           <% end %>
         <% end %>
       </div>
@@ -46,12 +73,8 @@
   </div>
 <div>
 
-  <% unless !current_user.favorites.nil? %>
-    <p>YOU ARE LONELY. DEAL WITH IT</p>
-  <% end %>
-
 </div>
-<div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+<div class="card mb-3 suggestion-cards" style='overflow: hidden;'>
   <div class="suggestion-cards-info">
     <h5
         class="card-title"
@@ -67,13 +90,17 @@
           <%= @suggestion.rating %></i>
         <p class="pt-0 pb-0 mb-0">Description:</p>
         <p>
-          <%= @suggestion.overview %>
+          <% if @suggestion.overview.length > 180 %>
+             <%= @suggestion.overview[0..180] %> ...
+          <% else %>
+             <%= @suggestion.overview %>
+          <% end %>
         </p>
-      </p>
-    </div>
+    </p>
   </div>
 </div>
-<div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+</div>
+<div class="card mb-3 suggestion-cards" style='overflow: hidden; margin-top:20px;'>
   <div class="suggestion-cards-info">
     <h5 class="card-title"
               style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
@@ -95,10 +122,15 @@
   </div>
 </div>
 <script>
+
   const coordinates = document.getElementById('coordinates');
     const addressElement = document.getElementById('address');
 
   accessToken = 'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
+
+  `https://api.mapbox.com/geocoding/v5/mapbox.places/${addressElement}.json?proximity=ip&access_token=${accessToken}`
+
+
   mapboxgl.accessToken = accessToken;
   console.log(coordinates.dataset.longitude)
   const map = new mapboxgl.Map({
@@ -106,7 +138,8 @@
   // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
   style: 'mapbox://styles/mapbox/streets-v12',
   center: [coordinates.dataset.longitude, coordinates.dataset.latitude],
-  zoom: 15
+  zoom: 15,
+  trackUserLocation: true
   });
 
 
@@ -131,4 +164,8 @@
       console.error('Error fetching address:', error);
       addressElement.textContent = 'Error fetching address';
   });
+
+   const carousel = new bootstrap.Carousel('#myCarousel', {
+    interval: 1000
+  })
 </script>

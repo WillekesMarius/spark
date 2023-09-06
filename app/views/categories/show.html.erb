@@ -1,5 +1,7 @@
-<div id="category-show-page-banner"class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  <%= @category.title %>
+<div id="category-show-page-banner" class="card-category">
+    <div id="category-show-title-words"> 
+      <%= @category.title %>
+    </div>
 </div>
 <div
   class="container d-flex justify-content-between"
@@ -31,10 +33,10 @@
       <%= link_to suggestion_path(suggestion), class: 'text-decoration-none text-dark' do %>
         <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
           <% if suggestion.images.present? %>
-            <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 250px") %>
-          
+            <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 250px; object-fit: cover") %>
+
           <% else %>
-            <%= image_tag("food-01.jpg", class: "card-img-top") %>
+            <%= image_tag("https://source.unsplash.com/random/?date", class: "card-img-top") %>
           <% end %>
           <div class="suggestion-cards-info">
             <h5
@@ -52,21 +54,20 @@
               </p>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    document.getElementById("amsterdam-btn").click();
- });
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      document.getElementById("amsterdam-btn").click();
+  });
 
-  const amsterdamButton = document.getElementById('amsterdam-btn')
-  amsterdamButton.addEventListener('Click', (event) => {
-    console.log('hello')
-  })
+    const amsterdamButton = document.getElementById('amsterdam-btn')
+    amsterdamButton.addEventListener('Click', (event) => {
+      console.log('hello')
+    })
 
-  const rotterdamButton = document.querySelector('#rotterdam-btn')
-  const theHagueButton = document.querySelector('#the-hague-btn')
-</script>
+    const rotterdamButton = document.querySelector('#rotterdam-btn')
+    const theHagueButton = document.querySelector('#the-hague-btn')
+  </script>
