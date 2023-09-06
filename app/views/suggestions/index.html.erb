@@ -1,96 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+  <style>
+
+
+    swiper-container {
+      width: 340px;
+      height: 420px;
+    }
+
+    swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background-color: rgb(255, 255, 255);
+    }
+
+
+  </style>
+
+
+</head>
+
+<body>
 <div class="cover">
-  <p
-      class='text-dashboard'
-      style="position: absolute; left: 50%; top: 134px; transform: translate(-50%); z-index: 1000; font-weight: 700; font-size: 28px; color: white; text-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;"
-      >Your Sparks</p>
+
   <div class="card bg-dark text-white image-container" style="height: 150px;">
     <%= image_tag("dashboard-2.jpeg", class: "card-img", alt: "Card image") %>
-    <div class="gradient-overlay"></div>
+  <!--  <div class="gradient-overlay"></div> -->
+   <p
+    class='text-dashboard'
+    style="position: absolute; left: 50%; top: 134px; transform: translate(-50%); z-index: 1000; font-weight: 700; font-size: 28px; color: white; text-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;"
+  >Your Sparks</p>
   </div>
 </div>
-<%# <div class="container" style="margin-top: 70px"> %>
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <% @suggestions.each do |suggestion| %>
-      <div class="swiper-slide" data-suggestion-id="<%= suggestion.id %>">
-        <div class="card p-3 ">
-          <div class='img-container' style="background-image: url(<%= image_path('food-01.jpg') %>); min-height: 500px; margin-top: 30px">
-        </div>
-          <div
-               class='img-container'
 
-               style="background-image: url(<%= image_path('food-01.jpg') %>); min-height: 500px; margin-top: 30px">
 
-     <% if suggestion.images.present? %>
-                     <%= image_tag(
-                            suggestion.images[0],
-                             style: "height: 300px;max-width:300px;margin-top: 30px"
-                          ) %>
-                   <% else %>
-                     <%= image_tag("food-01.jpg", style: "min-height: 400px;margin-top: 30px, max-width:500px;") %>
-                   <% end %>
-          </div>
-          <%= suggestion.title %>
-        </div>
-        
-      </div>
-    <% end %>
+  <swiper-container class="mySwiper" style="margin-top:150px;" effect="cards" grab-cursor="true">
+
+
+      <% @suggestions.each do |suggestion| %>
+       <swiper-slide data-suggestion-id="<%= suggestion.id %>">
+
+       <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+          <% if suggestion.images.present? && suggestion.images[0].present? %>
+  <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 250px") %>
+<% else %>
+  <%= image_tag("food-01.jpg", class: "card-img-top") %>
+<% end %>
+  <div class="suggestion-cards-info">
+    <h5
+        class="card-title"
+        style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px;"
+      ><%= suggestion.title %></h5>
+    <div>
+      <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
+        <%= suggestion.city %>
+        &nbsp;
+        <%= suggestion.sub_category %>
+        &nbsp;
+        <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
+          <%= suggestion.rating %></i>
+
+      </p>
+    </div>
   </div>
 </div>
-<div>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+</swiper-slide>
+      <% end %>
+  </swiper-container>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-  <script>
-    const swiper = new Swiper(".mySwiper", {
-      effect: "cards",
-      grabCursor: true,
-    });
-    swiper.on('slideChange', function () {
-      console.log('slide changed');
-    });
+   <script>
 
-    //    https://hammerjs.github.io/recognizer-swipe/
-    const suggestionCards = document.querySelectorAll(".swiper-slide");
-    suggestionCards.forEach((card) => {
-    const suggestionCard = new Hammer(card);
 
-    // suggestionCard.on('swipeleft', function () {
-    //   const suggestionId = card.getAttribute('data-suggestion-id');
-    //   removeFromFavorites(suggestionId);
-    // });
-    suggestionCard.on('swiperight', function () {
 
-    const suggestionId = card.getAttribute('data-suggestion-id');
-                    console.log('Swipet right:', suggestionId);
+      //    https://hammerjs.github.io/recognizer-swipe/
+      const suggestionCards = document.querySelectorAll("swiper-slide");
+      suggestionCards.forEach((card) => {
+      const suggestionCard = new Hammer(card);
 
-     addToFavorites(suggestionId);
-    });
-    });
+       suggestionCard.on('swipeleft', function () {
+        const suggestionId = card.getAttribute('data-suggestion-id');
+        removeFromFavorites(suggestionId);
+       });
+      suggestionCard.on('swiperight', function () {
 
-    function removeFromFavorites(suggestionId) {
-      console.log('Swipet left:', suggestionId);
-    }
+      const suggestionId = card.getAttribute('data-suggestion-id');
+                      console.log('Swipet right:', suggestionId);
 
-    function addToFavorites(suggestionId) {
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    fetch(`/favorites`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRF-Token': csrfToken,
-    },
-    body: JSON.stringify({ suggestion_id:suggestionId }),
-    })
-    .then((response) => {
-      if (response.ok) {
-                console.log('success');
-      } else {
-        console.error('Failed to add to favorites :', response.status);
+       addToFavorites(suggestionId);
+      });
+      });
+
+      function removeFromFavorites(suggestionId) {
+        console.log('Swipet left:', suggestionId);
       }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-    }
-  </script>
-</div>
+
+       function addToFavorites(suggestionId) {
+      const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+      fetch(`/favorites`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': csrfToken,
+      },
+      body: JSON.stringify({ suggestion_id:suggestionId }),
+      })
+      .then((response) => {
+        if (response.ok) {
+                  console.log('success');
+        } else {
+          console.error('Failed to add to favorites :', response.status);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      }
+      </script>
+
+</body>
+
+</html>
