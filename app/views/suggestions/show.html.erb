@@ -2,14 +2,39 @@
 <div class="container" style="margin-top: 70px">
 
   <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
-    <% if @suggestion.images.present? %>
-      <%= image_tag(
-              @suggestion.images[0],
-              class: "card-img-top",
-              style: "max-height: 250px"
-            ) %>
+    <% if @suggestion.images.empty? %>
+      <%= image_tag("https://source.unsplash.com/random/?date", class: "card-img-top") %>
     <% else %>
-      <%= image_tag("food-01.jpg", class: "card-img-top") %>
+      <div id="myCarousel" class="carousel slide carousel-fade" data-bs-touch="true" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag(
+                @suggestion.images[0],
+                class: "card-img-top",
+                style: "max-height: 250px; object-fit: cover",
+                alt: "date"
+              ) %>
+          </div>
+          <% @suggestion.images.drop(1).each do |image| %>
+            <div class="carousel-item">
+              <%= image_tag(
+                  image,
+                  class: "card-img-top",
+                  style: "max-height: 250px; object-fit: cover",
+                  alt: "date"
+                ) %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     <% end %>
 
 
@@ -31,6 +56,7 @@
       <% end %>
     </div>
   </div>
+<<<<<<< HEAD
   
   <div>
 
@@ -71,8 +97,39 @@
         <p>
           <%= @suggestion.overview %>
         </p>
+=======
+  <div id='spark-dates'>
+    <% if current_user.favorites.find_by(suggestion_id: @suggestion.id) %>
+      <%= simple_form_for(current_user.favorites.find_by(suggestion_id: @suggestion.id)) do |f| %>
+        <%= f.input :occurs_on,
+              as: :string,
+              input_html: { data: { controller: "datepicker"}} %>
+        <%= f.submit "Create Spark", class:"btn btn-ghost" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <% unless !current_user.favorites.nil? %>
+      <p>YOU ARE LONELY. DEAL WITH IT</p>
+    <% end %>
+  </div>
+  <h5
+      class="card-title"
+      style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
+    ><%= @suggestion.title %></h5>
+  <div>
+    <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
+      <%= @suggestion.city %>
+      &nbsp;
+      <%= @suggestion.sub_category %>
+      &nbsp;
+      <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
+        <%= @suggestion.rating %></i>
+      <p>
+        <%= @suggestion.overview %>
+>>>>>>> 25558291836a071ac5b908abe335d809c01991ad
       </p>
-    </div>
+    </p>
   </div>
 </div>
 <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
@@ -97,10 +154,18 @@
   </div>
 </div>
 <script>
+  const carousel = new bootstrap.Carousel('#myCarousel', {
+    interval: 1000
+  })
+
   const coordinates = document.getElementById('coordinates');
     const addressElement = document.getElementById('address');
 
   accessToken = 'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
+
+  `https://api.mapbox.com/geocoding/v5/mapbox.places/${addressElement}.json?proximity=ip&access_token=${accessToken}`
+
+
   mapboxgl.accessToken = accessToken;
   console.log(coordinates.dataset.longitude)
   const map = new mapboxgl.Map({
@@ -108,7 +173,8 @@
   // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
   style: 'mapbox://styles/mapbox/streets-v12',
   center: [coordinates.dataset.longitude, coordinates.dataset.latitude],
-  zoom: 15
+  zoom: 15,
+  trackUserLocation: true
   });
 
 
