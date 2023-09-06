@@ -16,9 +16,9 @@
          <div class="card p-3 ">
             <div
                class='img-container'
-               style="background-image: url(<%= image_path('food-01.jpg') %>); min-height: 500px; margin-top: 30px"
-               >
-               <!--
+               style="background-image: url(<%= image_path('food-01.jpg') %>); min-height: 500px; margin-top: 30px">
+
+       <!--        
      <% if suggestion.images.present? %>
                      <%= image_tag(
                             suggestion.images[0],
@@ -27,7 +27,7 @@
                    <% else %>
                      <%= image_tag("food-01.jpg", style: "min-height: 400px;margin-top: 30px, max-width:500px;") %>
                    <% end %>
-                   -->
+                  --> 
             </div>
             <%= suggestion.title %>
 
