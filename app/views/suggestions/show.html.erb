@@ -17,6 +17,7 @@
       <% if current_user %>
         <% if current_user.favorites.where(suggestion: @suggestion).empty? %>
           <%= simple_form_for [@suggestion, @favorite] do |f| %>
+            <input type="hidden" id="referrer" name="referrer" value="show" />
             <%= f.button :button do %>
               <i id="heart" class="fa-regular fa-heart fa-xl"></i>
             <% end %>
