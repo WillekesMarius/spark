@@ -56,11 +56,6 @@
       <% end %>
     </div>
   </div>
-<<<<<<< HEAD
-  
-  <div>
-
-  </div>
 
   <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
     <div class="suggestion-cards-info">
@@ -97,38 +92,6 @@
         <p>
           <%= @suggestion.overview %>
         </p>
-=======
-  <div id='spark-dates'>
-    <% if current_user.favorites.find_by(suggestion_id: @suggestion.id) %>
-      <%= simple_form_for(current_user.favorites.find_by(suggestion_id: @suggestion.id)) do |f| %>
-        <%= f.input :occurs_on,
-              as: :string,
-              input_html: { data: { controller: "datepicker"}} %>
-        <%= f.submit "Create Spark", class:"btn btn-ghost" %>
-      <% end %>
-    <% end %>
-  </div>
-  <div>
-    <% unless !current_user.favorites.nil? %>
-      <p>YOU ARE LONELY. DEAL WITH IT</p>
-    <% end %>
-  </div>
-  <h5
-      class="card-title"
-      style="padding-top: 15px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
-    ><%= @suggestion.title %></h5>
-  <div>
-    <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
-      <%= @suggestion.city %>
-      &nbsp;
-      <%= @suggestion.sub_category %>
-      &nbsp;
-      <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
-        <%= @suggestion.rating %></i>
-      <p>
-        <%= @suggestion.overview %>
->>>>>>> 25558291836a071ac5b908abe335d809c01991ad
-      </p>
     </p>
   </div>
 </div>
