@@ -74,7 +74,7 @@
 <div>
 
 </div>
-<div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+<div class="card mb-3 suggestion-cards" style='overflow: hidden;'>
   <div class="suggestion-cards-info">
     <h5
         class="card-title"
@@ -90,12 +90,17 @@
           <%= @suggestion.rating %></i>
         <p class="pt-0 pb-0 mb-0">Description:</p>
         <p>
-          <%= @suggestion.overview %>
+          <% if @suggestion.overview.length > 180 %>
+             <%= @suggestion.overview[0..180] %> ...
+          <% else %>
+             <%= @suggestion.overview %>
+          <% end %>
         </p>
     </p>
   </div>
 </div>
-<div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+</div>
+<div class="card mb-3 suggestion-cards" style='overflow: hidden; margin-top:20px;'>
   <div class="suggestion-cards-info">
     <h5 class="card-title"
               style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
@@ -117,9 +122,7 @@
   </div>
 </div>
 <script>
-  const carousel = new bootstrap.Carousel('#myCarousel', {
-    interval: 1000
-  })
+
 
   const coordinates = document.getElementById('coordinates');
     const addressElement = document.getElementById('address');
@@ -162,4 +165,8 @@
       console.error('Error fetching address:', error);
       addressElement.textContent = 'Error fetching address';
   });
+
+   const carousel = new bootstrap.Carousel('#myCarousel', {
+    interval: 1000
+  })
 </script>
