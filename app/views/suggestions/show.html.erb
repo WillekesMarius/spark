@@ -2,14 +2,39 @@
 <div class="container" style="margin-top: 70px">
 
   <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
-    <% if @suggestion.images.present? %>
-      <%= image_tag(
-              @suggestion.images[0],
-              class: "card-img-top",
-              style: "max-height: 250px"
-            ) %>
+    <% if @suggestion.images.empty? %>
+      <%= image_tag("https://source.unsplash.com/random/?date", class: "card-img-top") %>
     <% else %>
-      <%= image_tag("food-01.jpg", class: "card-img-top") %>
+      <div id="myCarousel" class="carousel slide carousel-fade" data-bs-touch="true" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag(
+                @suggestion.images[0],
+                class: "card-img-top",
+                style: "max-height: 250px; object-fit: cover",
+                alt: "date"
+              ) %>
+          </div>
+          <% @suggestion.images.drop(1).each do |image| %>
+            <div class="carousel-item">
+              <%= image_tag(
+                  image,
+                  class: "card-img-top",
+                  style: "max-height: 250px; object-fit: cover",
+                  alt: "date"
+                ) %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     <% end %>
 
 
@@ -71,8 +96,7 @@
         <p>
           <%= @suggestion.overview %>
         </p>
-      </p>
-    </div>
+    </p>
   </div>
 </div>
 <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
@@ -97,10 +121,18 @@
   </div>
 </div>
 <script>
+  const carousel = new bootstrap.Carousel('#myCarousel', {
+    interval: 1000
+  })
+
   const coordinates = document.getElementById('coordinates');
     const addressElement = document.getElementById('address');
 
   accessToken = 'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
+
+  `https://api.mapbox.com/geocoding/v5/mapbox.places/${addressElement}.json?proximity=ip&access_token=${accessToken}`
+
+
   mapboxgl.accessToken = accessToken;
   console.log(coordinates.dataset.longitude)
   const map = new mapboxgl.Map({
@@ -108,7 +140,8 @@
   // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
   style: 'mapbox://styles/mapbox/streets-v12',
   center: [coordinates.dataset.longitude, coordinates.dataset.latitude],
-  zoom: 15
+  zoom: 15,
+  trackUserLocation: true
   });
 
 
