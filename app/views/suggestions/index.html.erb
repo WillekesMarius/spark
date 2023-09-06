@@ -14,39 +14,11 @@
     <% @suggestions.each do |suggestion| %>
       <div class="swiper-slide" data-suggestion-id="<%= suggestion.id %>">
         <div class="card p-3 ">
-          <div
-               class='img-container'
-<<<<<<< HEAD
-               style="background-image: url(<%= image_path('food-01.jpg') %>); min-height: 500px; margin-top: 30px">
-
-       <!--        
-=======
-               style="background-image: url(<%= image_path('food-01.jpg') %>); min-height: 500px; margin-top: 30px"
-               >
-            <!--
->>>>>>> 25558291836a071ac5b908abe335d809c01991ad
-     <% if suggestion.images.present? %>
-                     <%= image_tag(
-                            suggestion.images[0],
-                             style: "height: 300px;max-width:300px;margin-top: 30px"
-                          ) %>
-                   <% else %>
-                     <%= image_tag("food-01.jpg", style: "min-height: 400px;margin-top: 30px, max-width:500px;") %>
-                   <% end %>
-<<<<<<< HEAD
-                  --> 
-            </div>
-            <%= suggestion.title %>
-
-
-
-         </div>
-=======
-                   -->
-          </div>
+          <div class='img-container' style="background-image: url(<%= image_path('food-01.jpg') %>); min-height: 500px; margin-top: 30px">
+        </div>
           <%= suggestion.title %>
         </div>
->>>>>>> 25558291836a071ac5b908abe335d809c01991ad
+        
       </div>
     <% end %>
   </div>
