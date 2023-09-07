@@ -37,8 +37,6 @@
       </div>
     <% end %>
 
-
-
     <div style='height: 0px'>
       <% if current_user %>
         <% if current_user.favorites.where(suggestion: @suggestion).empty? %>
@@ -65,9 +63,12 @@
             <%= f.input :occurs_on,
                   as: :string,
                   input_html: { data: { controller: "datepicker"}} %>
-            <%= f.submit "Create Spark", id:"create-spark" %>
+                  <%# <button class="btn btn-primary btn-lg" data-controller="confirm-button" data-action="click->confirm-button#confirm">Click Me!</button> %>
+            <%= f.submit "Create Spark", id:"create-spark"%>
           <% end %>
         <% end %>
+        <div>
+        </div>
       </div>
     </div>
   </div>
