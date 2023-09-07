@@ -25,13 +25,13 @@
       <div class="col col-lg-9 col-xl-7">
         <div class="card">
           <div class="rounded-top text-white d-flex flex-row">
-            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px; justify-content: between;">
-              <%= image_tag("Avatar.jpg", class: "avatar-extra-large") %>
-            </div>
+              <%= cl_image_tag current_user.photo.key, width: 100 ,height: 100, class:"btn2 btn-secondary" %>
+          </div>
+            <%# <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px; justify-content: between;">
+            </div> %>
             <div class="ms-3">
               <%= current_user.first_name %> <%= current_user.last_name %>
             </div>
-          </div>
           <div>
             <p class="lead fw-normal mb-1">Interests</p>
           </div>

@@ -45,6 +45,7 @@ class FavoritesController < ApplicationController
   def favorite_params
     params.require(:favorite).permit(:occurs_on)
   end
+  
 end
 
 
