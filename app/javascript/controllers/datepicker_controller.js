@@ -1,19 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr"; // You need to import this to use new flatpickr()
 
-const flatpickr = require("flatpickr");
-
 export default class extends Controller {
-  static targets = ["button"]
   connect() {
-    flatpickr(thielement, {
+    flatpickr(this.element, {
       altInput: true,
       altFormat: "F j, Y",
       dateFormat: "Y-m-d",
       minDate: "today",
-  });
+  })
   }
 }
+
+
 //   }
 
 //   confirm() {
@@ -21,7 +20,6 @@ export default class extends Controller {
 //     this.date-button.element.setAttribute("confirm", "");
 
 // }
-
 
 
   // 1. name the funnction eg. 'confirmdDate'
