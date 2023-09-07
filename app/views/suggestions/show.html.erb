@@ -35,22 +35,27 @@
       </div>
     <% end %>
   </div>
-
-  <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
-    <div class="suggestion-cards-info">
-      <div id='spark-dates'>
-        <% if current_user.favorites.find_by(suggestion_id: @suggestion.id) %>
+  <% if current_user.favorites.find_by(suggestion_id: @suggestion.id) %>
+    <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
+      <div class="suggestion-cards-info">
+        <div id='spark-dates'>
           <%= simple_form_for(current_user.favorites.find_by(suggestion_id: @suggestion.id)) do |f| %>
             <%= f.input :occurs_on,
+                  placeholder: "",
                   as: :string,
                   input_html: { data: { controller: "datepicker"}} %>
-            <%= f.submit "Create Spark", id:"create-spark" %>
+            <%# <button class="btn btn-primary btn-lg" data-controller="confirm-button" data-action="click->confirm-button#confirm">Click Me!</button> %>
+            <%= f.submit "Create Spark", id:"create-spark"%>
           <% end %>
-        <% end %>
+          <% unless @suggestion.favorites.find_by(user_id: current_user.id).occurs_on == nil %>
+            <p>Your Spark is set!</p>
+          <% end %>
+        </div>
       </div>
     </div>
+  <% end %>
+  <div>
   </div>
-
   <div class="container card mb-3 suggestion-cards" style='overflow: hidden;'>
     <div class="suggestion-cards-info">
       <div class="d-flex justify-content-between">
@@ -78,7 +83,6 @@
           <% end %>
         </div>
       </div>
-
       <div>
         <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
           <%= @suggestion.city %>
