@@ -1,6 +1,6 @@
   <style>
     swiper-container {
-      width: 360px;
+      width: 380px;
       height: 400px;
     }
 
@@ -17,13 +17,14 @@
   </style>
 <div class="cover">
 
-  <div class="card bg-dark text-white image-container" style="max-height: 150px; object-fit: cover">
-    <%= image_tag("dashboard-3.jpeg", class: "card-img", style: "margin-top:40px;max-height: 150px; ") %>
+  <div class="card text-white image-container" style="max-height: 190px; object-fit: cover">
+    <%= image_tag("dashboard-3.jpeg", class: "card-img", style: "margin-top:40px; min-height: 215px ") %>
   <!--  <div class="gradient-overlay"></div> -->
-   <p
-    class='text-dashboard'
-    style="position: absolute; left: 50%; top: 134px; transform: translate(-50%); z-index: 1000; font-weight: 700; font-size: 28px; color: white; text-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;"
-  >Your Sparks</p>
+    <p style="position: absolute; left: 50%; top: 120px; transform: translate(-50%); z-index: 1000; font-weight: 400; font-size: 16px; font-style: italic; color: beige; letter-spacing: 1px;"
+>Good things are coming.. </p>
+    <p
+    style="position: absolute; left: 50%; top: 134px; transform: translate(-50%); z-index: 1000; font-weight: 700; font-size: 35px; color: white; text-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;"
+  >Spark it up!</p>
   </div>
 </div>
 
@@ -43,7 +44,7 @@
   <div class="suggestion-cards-info">
     <h5
         class="card-title"
-        style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px;"
+        style="padding-top: 18px; font-weight: 600; padding-bottom: 5px; font-size: 19px"
       >
       <% if suggestion.title.length > 25 %>
   <%= suggestion.title[0..22] %>...
@@ -51,7 +52,7 @@
   <%= suggestion.title %>
 <% end %></h5>
     <div>
-      <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
+      <p class="card-text b-5" style="font-size: 18px"><i class="fa-solid fa-location-dot"></i>
         <%= suggestion.city %>
         &nbsp;
         &nbsp;
