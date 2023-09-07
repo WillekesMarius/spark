@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "suggestions#index"
+  root to: "pages#home"
 
   devise_for :users
 
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :reviews, only: %i[show new create]
   resources :categories, only: %i[index show]
   resources :chatgpt, only: %i[index]
-  resources :pages, only: %i[index profile]
+  resources :pages, only: %i[index profile home]
     get "/profile", to: "pages#profile", as: "profile"
+    get "/home", to: "pages#home", as: "home"
+
 end
