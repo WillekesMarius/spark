@@ -6,6 +6,21 @@
 *::after {
   box-sizing: border-box;
 }
+swiper-container {
+  width: 340px;
+  height: 420px;
+}
+
+swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(255, 255, 255);
+}
 
 #spark-dates {
   background-color: #f4f4f4;
@@ -134,7 +149,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
-  margin-bottom: 1.25rem;    
+  margin-bottom: 1.25rem;
   font-weight: 400;
 }
 
