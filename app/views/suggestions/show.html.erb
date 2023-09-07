@@ -123,12 +123,12 @@
       </div>
     </div>
   </div>
+  <span id="mapbox-api" class="d-none"><%= ENV['MAPBOX_API_KEY'] %></span>
   <script>
     const coordinates = document.getElementById('coordinates');
        const addressElement = document.getElementById('address');
 
-     accessToken = ENV['MAPBOX_API_KEY'];
-     console.log(accessToken)
+    const accessToken = document.querySelector('#mapbox-api').innerText;
 
      mapboxgl.accessToken = accessToken;
      console.log(coordinates.dataset.longitude)
