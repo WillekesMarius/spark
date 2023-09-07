@@ -34,22 +34,6 @@
         </button>
       </div>
     <% end %>
-    <div style='height: 0px'>
-      <% if current_user %>
-        <% if current_user.favorites.where(suggestion: @suggestion).empty? %>
-          <%= simple_form_for [@suggestion, @favorite] do |f| %>
-            <input type="hidden" id="referrer" name="referrer" value="show" />
-            <%= f.button :button do %>
-              <i id="heart" class="fa-regular fa-heart fa-xl"></i>
-            <% end %>
-          <% end %>
-        <% else %>
-          <%= link_to favorite_path(current_user.favorites.where(suggestion: @suggestion).first), data: {turbo_method: :delete} do %>
-            <i id="heart" class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
   </div>
   <% if current_user.favorites.find_by(suggestion_id: @suggestion.id) %>
     <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
@@ -72,12 +56,33 @@
   <% end %>
   <div>
   </div>
-  <div class="card mb-3 suggestion-cards" style='overflow: hidden;'>
+  <div class="container card mb-3 suggestion-cards" style='overflow: hidden;'>
     <div class="suggestion-cards-info">
-      <h5
-        class="card-title"
-        style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px;"
-      ><%= @suggestion.title %></h5>
+      <div class="d-flex justify-content-between">
+        <div class="w-30">
+          <h5
+            class="card-title"
+            style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px;"
+          ><%= @suggestion.title %></h5>
+        </div>
+
+        <div class="mt-4" style='height: 0px'>
+          <% if current_user %>
+            <% if current_user.favorites.where(suggestion: @suggestion).empty? %>
+              <%= simple_form_for [@suggestion, @favorite] do |f| %>
+                <input type="hidden" id="referrer" name="referrer" value="show" />
+                <%= f.button :button do %>
+                  <i id="heart" class="fa-regular fa-heart fa-xl"></i>
+                <% end %>
+              <% end %>
+            <% else %>
+              <%= link_to favorite_path(current_user.favorites.where(suggestion: @suggestion).first), data: {turbo_method: :delete} do %>
+                <i id="heart" class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
       <div>
         <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
           <%= @suggestion.city %>
@@ -86,7 +91,6 @@
           &nbsp;
           <i class="fa-solid fa-star" style="color: #992944; font-size: 14px">
             <%= @suggestion.rating %></i>
-          <p class="pt-0 pb-0 mb-0">Description:</p>
           <p>
             <% if @suggestion.overview.length > 180 %>
               <%= @suggestion.overview[0..180] %> ...
@@ -98,12 +102,12 @@
       </div>
     </div>
   </div>
-  <div class="card mb-3 suggestion-cards" style='overflow: hidden; margin-top:20px;'>
+  <div class="container card mb-3 suggestion-cards" style='overflow: hidden; margin-top:20px;'>
     <div class="suggestion-cards-info">
       <h5 class="card-title"
               style="padding-top: 18px; font-weight: 700; letter-spacing: 1px; padding-bottom: 5px; "
             >Location</h5>
-      <p> Address: <span id="address"> </span> </p>
+      <p><span id="address"> </span> </p>
       <div style="min-height:250px; margin-bottom:5px; z-index:0;">
         <div
                 id="map"
@@ -168,8 +172,4 @@
          console.error('Error fetching address:', error);
          addressElement.textContent = 'Error fetching address';
      });
-
-      const carousel = new bootstrap.Carousel('#myCarousel', {
-       interval: 1000
-     })
   </script>
