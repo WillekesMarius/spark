@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)https://beautifier.io/ -->
+<html lang="en-US" dir="ltr" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" class=" idc0_343 cnkdk"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- The <meta> element must be within the first 1024 bytes of the HTML -->
+
+  <!--
+  The MIT License (MIT)
+
+  Copyright (c) 2007-2018 Einar Lielmanis, Liam Newman, and contributors.
+
+  Permission is hereby granted, free of charge, to any person
+  obtaining a copy of this software and associated documentation files
+  (the "Software"), to deal in the Software without restriction,
+  including without limitation the rights to use, copy, modify, merge,
+  publish, distribute, sublicense, and/or sell copies of the Software,
+  and to permit persons to whom the Software is furnished to do so,
+  subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+  BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+  ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+  -->
+
+  <!-- if you feel an urge to move this to bootstrap or something, you're most welcome -->
+  <title>Online JavaScript beautifier</title>
+  <link rel="icon" href="https://beautifier.io/web/favicon.png" type="image/png">
+
+  <script async="" src="./Online JavaScript beautifier_files/analytics.js"></script><script src="./Online JavaScript beautifier_files/polyfill.min.js"></script>
+
+  <!-- Codemirror from https://cdnjs.com/libraries/codemirror -->
+  <link rel="stylesheet" href="./Online JavaScript beautifier_files/codemirror.min.css" integrity="sha256-vZ3SaLOjnKO/gGvcUWegySoDU6ff33CS5i9ot8J9Czk=" crossorigin="anonymous">
+  <link rel="stylesheet" href="./Online JavaScript beautifier_files/darcula.min.css" integrity="sha256-ZzdkdGSdYSUv4R77x7A5G7EeFDLMhAiCybNBNxNoxos=" crossorigin="anonymous">
+  <script src="./Online JavaScript beautifier_files/codemirror.min.js" integrity="sha256-dPTL2a+npIonoK5i0Tyes0txCMUWZBf8cfKRfACRotc=" crossorigin="anonymous"></script>
+
+  <!-- Codemirror Modes -->
+  <script src="./Online JavaScript beautifier_files/xml.min.js" integrity="sha256-cphnEddX56MtGJsi1PoCPLds+dlnDj1QQkAlCWeJYDo=" crossorigin="anonymous"></script>
+  <script src="./Online JavaScript beautifier_files/javascript.min.js" integrity="sha256-7AjEsHnW7cpq2raC/uxnGCP2G4zIKmCdz7OAv6LN00o=" crossorigin="anonymous"></script>
+  <script src="./Online JavaScript beautifier_files/css.min.js" integrity="sha256-mjhvNBMExwa2AtP0mBlK9NkzJ7sgRSyZdgw9sPhhtb0=" crossorigin="anonymous"></script>
+  <script src="./Online JavaScript beautifier_files/htmlmixed.min.js" integrity="sha256-qfS6ZUe6JhPU75/Sc1ftiWzC2N9IxGEjlRwpKB78Ico=" crossorigin="anonymous"></script>
+
+  <script src="./Online JavaScript beautifier_files/search.js" integrity="sha256-iUnNlgkrU5Jj8oKl2zBBCTmESI2xpXwZrTX+arxSEKc=" crossorigin="anonymous"></script>
+  <script src="./Online JavaScript beautifier_files/searchcursor.min.js" integrity="sha256-y7nxCQ9bT6p4fEq9ylGxWfMQBpL6ingXkav6Nr1AcZ8=" crossorigin="anonymous"></script>
+  <script src="./Online JavaScript beautifier_files/dialog.min.js" integrity="sha256-G+QhvxjUNi5P5cyQqjROwriSUy2lZtCFUQh+8W1o6I0=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./Online JavaScript beautifier_files/dialog.css" integrity="sha256-XfaQ13HxIRg0hWLdKpAGBDOuLt7M0JCKvKpEgLHj5Gg=" crossorigin="anonymous">
+
+  <script src="./Online JavaScript beautifier_files/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+  <script src="./Online JavaScript beautifier_files/js.cookie.min.js" integrity="sha256-oE03O+I6Pzff4fiMqwEGHbdfcW7a3GRRxlL+U49L5sA=" crossorigin="anonymous"></script>
+  <script src="./Online JavaScript beautifier_files/require.min.js" integrity="sha256-1fEPhSsRKlFKGfK3eO710tEweHh1fwokU5wFGDHO+vg=" crossorigin="anonymous"></script>
+
+  <script src="./Online JavaScript beautifier_files/javascriptobfuscator_unpacker.js"></script>
+  <script src="./Online JavaScript beautifier_files/urlencode_unpacker.js"></script>
+  <script src="./Online JavaScript beautifier_files/p_a_c_k_e_r_unpacker.js"></script>
+  <script src="./Online JavaScript beautifier_files/myobfuscate_unpacker.js"></script>
+  <script src="./Online JavaScript beautifier_files/common-function.js"></script>
+
+  <link rel="stylesheet" href="./Online JavaScript beautifier_files/common-style.css">
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="beautifier" src="./Online JavaScript beautifier_files/beautifier.min.js"></script></head>
+
+<body class="container dark-mode">
+
+  <div class="title">
+    <h1 class="logo">
+      <img alt="js-beautify" src="./Online JavaScript beautifier_files/banner-dark.svg" height="54px">
+      <span id="version-number">(v1.14.9)</span>
+    </h1>
+    <div class="sub-title">
+      <p>
+        <strong>Beautify JavaScript, JSON, React.js, HTML, CSS, SCSS, and SASS</strong>
+      </p>
+    </div>
+  </div>
+  <div class="options">
+    <div id="theme-toggle-wrapper">
+      <label id="theme-toggle-label" for="theme-toggle-btn">
+        <input type="checkbox" id="theme-toggle-btn" style="display: none">
+        <div id="theme-toggle-slider"></div>
+      </label>
+      <span>Enable Dark Mode</span>
+    </div>
+    <select name="language" id="language">
+      <option value="css">Beautify CSS</option>
+      <option value="html">Beautify HTML</option>
+      <option value="js">Beautify JavaScript</option>
+    </select>
+
+    <div class="buttons-box">
+      <button class="submit"><strong>Beautify Code</strong> <em>(cmd-enter)</em></button>
+      <button class="control" type="button" onclick="copyText()"><strong>Copy to Clipboard</strong></button>
+      <button class="control" type="button" onclick="selectAll()"><strong>Select All</strong></button>
+      <button class="control" type="button" onclick="clearAll()"><strong>Clear</strong></button>
+      <input type="file" onchange="changeToFileContent(this)">
+    </div>
+
+    <div class="config-options">
+      <h2>Options</h2>
+      <div id="options">
+
+        <div class="options-select">
+          <select name="tabsize" id="tabsize">
+            <option value="1">Indent with a tab character</option>
+            <option value="2">Indent with 2 spaces</option>
+            <option value="3">Indent with 3 spaces</option>
+            <option value="4">Indent with 4 spaces</option>
+            <option value="8">Indent with 8 spaces</option>
+          </select>
+          <select name="max-preserve-newlines" id="max-preserve-newlines">
+            <option value="-1">Remove all extra newlines</option>
+            <option value="1">Allow 1 newline between tokens</option>
+            <option value="2">Allow 2 newlines between tokens</option>
+            <option value="5">Allow 5 newlines between tokens</option>
+            <option value="10">Allow 10 newlines between tokens</option>
+            <option value="0">Allow unlimited newlines between tokens</option>
+          </select>
+          <select name="wrap-line-length" id="wrap-line-length">
+            <option value="0">Do not wrap lines</option>
+            <option value="40">Wrap lines near 40 characters</option>
+            <option value="70">Wrap lines near 70 characters</option>
+            <option value="80">Wrap lines near 80 characters</option>
+            <option value="110">Wrap lines near 110 characters</option>
+            <option value="120">Wrap lines near 120 characters</option>
+            <option value="160">Wrap lines near 160 characters</option>
+          </select>
+          <select id="brace-style">
+            <option value="collapse">Braces with control statement</option>
+            <option value="expand">Braces on own line</option>
+            <option value="end-expand">End braces on own line</option>
+            <option value="none">Attempt to keep braces where they are</option>
+          </select>
+          <div>
+            <p style="margin:6px 0 0 0">HTML &lt;style&gt;, &lt;script&gt; formatting:</p>
+            <select id="indent-scripts">
+              <option value="keep">Keep indent level of the tag</option>
+              <option value="normal">Add one indent level</option>
+              <option value="separate">Separate indentation</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="options-checkboxes">
+          <input class="checkbox" type="checkbox" id="end-with-newline">
+          <label for="end-with-newline">End script and style with newline?</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="e4x">
+          <label for="e4x">Support e4x/jsx syntax</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="comma-first">
+          <label for="comma-first">Use comma-first list style?</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="detect-packers">
+          <label for="detect-packers">Detect packers and obfuscators?</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="brace-preserve-inline">
+          <label for="brace-preserve-inline">Preserve inline braces/code blocks?</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="keep-array-indentation">
+          <label for="keep-array-indentation">Keep array indentation?</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="break-chained-methods">
+          <label for="break-chained-methods">Break lines on chained methods?</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="space-before-conditional">
+          <label for="space-before-conditional">Space before conditional: "if(x)" / "if (x)"</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="unescape-strings">
+          <label for="unescape-strings">Unescape printable chars encoded as \xNN or \uNNNN?</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="jslint-happy">
+          <label for="jslint-happy">Use JSLint-happy formatting tweaks?</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="indent-inner-html">
+          <label for="indent-inner-html">Indent &lt;head&gt; and &lt;body&gt; sections?</label>
+          <br>
+          <input class="checkbox" type="checkbox" id="indent-empty-lines">
+          <label for="indent-empty-lines">Keep indentation on empty lines?</label>
+          <br><a href="https://beautifier.io/?without-codemirror" class="turn-off-codemirror">Use a simple textarea for code input?</a>
+        </div>
+
+        <div>
+          <p style="margin:6px 0 0 0">Additional Settings (JSON):</p>
+          <textarea id="additional-options" rows="5">{}</textarea>
+        </div>
+        <p id="additional-options-error" hidden="" style="margin: 6px 0px 0px; color: red; display: none;">Could Not Parse JSON!</p>
+        <p style="margin:6px 0 0 0">Your Selected Options (JSON):</p>
+        <div>
+          <textarea readonly="" id="options-selected" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="contributions">
+      <p class="contributor-sep">Created by <a href="https://github.com/einars">Einar Lielmanis</a>, maintained and evolved by <a href="https://github.com/bitwiseman/">Liam Newman</a>.</p>
+      <p></p>
+      <p>
+        All of the source code is completely free and open, available on <a href="https://github.com/beautify-web/js-beautify">GitHub</a> under MIT licence,
+        and we have a command-line version, <a href="https://pypi.org/project/jsbeautifier/">python library</a> and a <a href="https://npmjs.org/package/js-beautify">node package</a> as well.
+      </p>
+      <p>We use the wonderful <a href="http://codemirror.net/">CodeMirror</a> syntax highlighting editor, written by Marijn Haverbeke.</p>
+      <p class="contributors">Made with a great help of many contributors. Special thanks to:<br>
+        Jason&nbsp;Diamond,
+        Patrick&nbsp;Hof,
+        Nochum&nbsp;Sossonko,
+        Andreas&nbsp;Schneider,
+        Dave&nbsp;Vasilevsky,
+        <a href="https://moikrug.ru/vital">Vital&nbsp;Batmanov</a>,
+        Ron&nbsp;Baldwin,
+        Gabriel&nbsp;Harrison,
+        <a href="http://shullian.com/">Chris J. Shull</a>,
+        <a href="http://mathiasbynens.be/">Mathias Bynens</a>,
+        <a href="https://www.vittgam.net/">Vittorio Gambaletta</a>,
+        <a href="https://github.com/esseks">Stefano Sanfilippo</a> and
+        <a href="https://github.com/evocateur">Daniel Stockman</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="editor">
+    <textarea id="source" style="display: none;"></textarea><div class="CodeMirror cm-s-default cm-s-darcula CodeMirror-focused"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 538.031px; left: 42.0469px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="width: 18px; pointer-events: none;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true" style="height: 18px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 30px; margin-bottom: 0px; border-right-width: 30px; min-height: 916px; min-width: 725.547px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre class="CodeMirror-line-like">x</pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 11.0469px; top: 533.031px; height: 14.4062px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">&lt;</span><span class="cm-variable">script</span> <span class="cm-operator">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-comment">//    https://hammerjs.github.io/recognizer-swipe/</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-keyword">let</span> <span class="cm-variable">suggestionCards</span> <span class="cm-operator">=</span> <span class="cm-variable">document</span>.<span class="cm-property">querySelectorAll</span>(<span class="cm-string">"swiper-slide"</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">suggestionCards</span>.<span class="cm-property">forEach</span>((<span class="cm-def">card</span>) <span class="cm-operator">=&gt;</span> {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-keyword">let</span> <span class="cm-def">suggestionCard</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Hammer</span>(<span class="cm-variable-2">card</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable-2">suggestionCard</span>.<span class="cm-property">on</span>(<span class="cm-string">'swipeleft'</span>, <span class="cm-keyword">function</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        <span class="cm-keyword">let</span> <span class="cm-def">suggestionId</span> <span class="cm-operator">=</span> <span class="cm-variable-2">card</span>.<span class="cm-property">getAttribute</span>(<span class="cm-string">'data-suggestion-id'</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        <span class="cm-variable">removeFromFavorites</span>(<span class="cm-variable-2">suggestionId</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    });</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable-2">suggestionCard</span>.<span class="cm-property">on</span>(<span class="cm-string">'tap'</span>, <span class="cm-keyword">function</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        <span class="cm-keyword">let</span> <span class="cm-def">suggestionId</span> <span class="cm-operator">=</span> <span class="cm-variable-2">card</span>.<span class="cm-property">getAttribute</span>(<span class="cm-string">'data-suggestion-id'</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        <span class="cm-variable">onTap</span>(<span class="cm-variable-2">suggestionId</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    });</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable-2">suggestionCard</span>.<span class="cm-property">on</span>(<span class="cm-string">'swiperight'</span>, <span class="cm-keyword">function</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        <span class="cm-keyword">let</span> <span class="cm-def">suggestionId</span> <span class="cm-operator">=</span> <span class="cm-variable-2">card</span>.<span class="cm-property">getAttribute</span>(<span class="cm-string">'data-suggestion-id'</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        <span class="cm-variable">addToFavorites</span>(<span class="cm-variable-2">suggestionId</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    });</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">});</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">onTap</span>(<span class="cm-def">suggestionId</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">29</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable">newPageURL</span> <span class="cm-operator">=</span> <span class="cm-string">"/suggestions/"</span> <span class="cm-operator">+</span> <span class="cm-variable-2">suggestionId</span>; <span class="cm-comment">// Replace with your desired URL</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">30</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">31</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-comment">// Use window.location.href to navigate to the new page</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">32</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable">window</span>.<span class="cm-property">location</span>.<span class="cm-property">href</span> <span class="cm-operator">=</span> <span class="cm-variable">newPageURL</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">33</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">34</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">35</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">36</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">removeFromFavorites</span>(<span class="cm-def">suggestionId</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">37</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'Swipet left:'</span>, <span class="cm-variable-2">suggestionId</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">38</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">39</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">40</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">async</span> <span class="cm-keyword">function</span> <span class="cm-def">addToFavorites</span>(<span class="cm-def">suggestionId</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">41</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        <span class="cm-keyword">try</span> {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">42</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">            <span class="cm-keyword">let</span> <span class="cm-def">csrfToken</span> <span class="cm-operator">=</span> <span class="cm-variable">document</span>.<span class="cm-property">querySelector</span>(<span class="cm-string">'meta[name="csrf-token"]'</span>).<span class="cm-property">getAttribute</span>(<span class="cm-string">'content'</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">43</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">            <span class="cm-keyword">let</span> <span class="cm-def">response</span> <span class="cm-operator">=</span> <span class="cm-keyword">await</span> <span class="cm-variable">fetch</span>(<span class="cm-string-2">`/favorites`</span>, {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">44</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                <span class="cm-property">method</span>: <span class="cm-string">'POST'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">45</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                <span class="cm-property">headers</span>: {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">46</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                    <span class="cm-string cm-property">'Content-Type'</span>: <span class="cm-string">'application/json'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">47</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                    <span class="cm-string cm-property">'X-CSRF-Token'</span>: <span class="cm-variable-2">csrfToken</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">48</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                },</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">49</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                <span class="cm-property">body</span>: <span class="cm-variable">JSON</span>.<span class="cm-property">stringify</span>({</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">50</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                    <span class="cm-property">suggestion_id</span>: <span class="cm-variable-2">suggestionId</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">51</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                }),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">52</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">            });</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">53</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">54</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">            <span class="cm-keyword">if</span> (<span class="cm-variable-2">response</span>.<span class="cm-property">ok</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">55</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'success'</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">56</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">            } <span class="cm-keyword">else</span> {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">57</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">                <span class="cm-variable">console</span>.<span class="cm-property">error</span>(<span class="cm-string">'Failed to add to favorites :'</span>, <span class="cm-variable-2">response</span>.<span class="cm-property">status</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">58</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">            }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">59</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        } <span class="cm-keyword">catch</span> (<span class="cm-def">error</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">60</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">            <span class="cm-variable">console</span>.<span class="cm-property">error</span>(<span class="cm-variable-2">error</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">61</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">        }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">62</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    } </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">63</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">&lt;</span><span class="cm-string-2">/script&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 916px;"></div><div class="CodeMirror-gutters" style="height: 946px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+  </div>
+
+  <div class="hide">
+
+    <p id="open-issue" hidden="" style="display: block;">Not pretty enough for you?
+      <button type="button" onclick="submitIssue()" name="issue-button">Report a problem with this input</button>
+    </p>
+
+    <div class="blurb">
+
+      <h2>Browser extensions and other uses</h2>
+      <div class="col-6">
+        <ul class="uses">
+
+          <li>A
+            <a href="javascript:(function(){s=document.getElementsByTagName(&#39;SCRIPT&#39;);tx=&#39;&#39;;sr=[];for(i=0;i&lt;s.length;i++){with(s.item(i)){t=text;if(t){tx+=t;}else{sr.push(src)};}};with(window.open()){document.write(&#39;&lt;textarea id=&quot;t&quot;&gt;&#39;+(sr.join(&quot;\n&quot;))+&quot;\n\n-----\n\n&quot;+tx+&#39;&lt;/textarea&gt;&lt;script src=&quot;https://beautifier.io/js/lib/beautify.js&quot;&gt;&lt;/script&gt;&lt;script&gt;with(document.getElementById(&quot;t&quot;)){value=js_beautify(value);with(style){width=&quot;99%&quot;;height=&quot;99%&quot;;borderStyle=&quot;none&quot;;}};&lt;/script&gt;&#39;);document.close();}})();">
+              <strong>bookmarklet</strong></a>
+            (drag it to your bookmarks) by Ichiro Hiroshi to see all scripts used on the page,
+          </li>
+
+          <li><strong>Chrome</strong>, in case the built-in CSS and javascript formatting isn't enough for you:<br>
+            — <a href="https://chrome.google.com/webstore/detail/cfmcghennfbpmhemnnfjhkdmnbidpanb">Quick source viewer</a> by Tomi Mickelsson (<a href="https://github.com/tomimick/chrome-ext-view-src">github</a>, <a href="http://tomicloud.com/2012/07/viewsrc-chrome-ext">blog</a>),<br>
+            — <a href="https://chrome.google.com/webstore/detail/javascript-and-css-code-b/iiglodndmmefofehaibmaignglbpdald">Javascript and CSS Code beautifier</a> by c7sky,<br>
+            — <a href="https://chrome.google.com/webstore/detail/jsbeautify-for-google-chr/kkioiolcacgoihiiekambdciinadbpfk">jsbeautify-for-chrome</a> by Tom Rix (<a href="https://github.com/rixth/jsbeautify-for-chrome">github</a>),<br>
+            — <a href="https://chrome.google.com/webstore/detail/piekbefgpgdecckjcpffhnacjflfoddg">Pretty Beautiful JavaScript</a> by Will McSweeney<br>
+            — <a href="https://chrome.google.com/webstore/detail/stackoverflow-code-beauti/pljeafjjkkbacckkollfejkciddacmeb">Stackoverflow Code Beautify</a> by Making Odd Edit Studios (<a href="https://github.com/MakingOddEdit/CodeBeautify">github</a>).
+          </li>
+          <li><strong>Firefox</strong>: <a href="https://addons.mozilla.org/en-US/firefox/addon/javascript-deminifier/">Javascript deminifier</a> by Ben Murphy, to be
+            used together with the firebug (<a href="https://github.com/benmmurphy/jsdeminifier_xpi/">github</a>),</li>
+          <li><strong>Safari</strong>: <a href="http://spadin.github.com/js-beautify-safari-extension">Safari extension</a> by Sandro Padin,</li>
+          <li><strong>Opera</strong>: <a href="https://addons.opera.com/addons/extensions/details/readable-javascript/">Readable JavaScript</a>
+            (<a href="https://github.com/Dither/readable-javascript">github</a>) by Dither,</li>
+          <li><strong>Opera</strong>: <a href="https://addons.opera.com/addons/extensions/details/source/">Source</a> extension by Deathamns,</li>
+          <li><strong>Sublime Text 2/3:</strong> <a href="https://github.com/akalongman/sublimetext-codeformatter">CodeFormatter</a>, a python plugin by Avtandil Kikabidze, supports HTML, CSS, JS and a bunch of other languages,</li>
+          <li><strong>Sublime Text 2/3:</strong> <a href="https://github.com/victorporof/Sublime-HTMLPrettify">HTMLPrettify</a>, a javascript plugin by Victor Porof,</li>
+          <li><strong>Sublime Text 2:</strong> <a href="https://github.com/jdc0589/JsFormat">JsFormat</a>, a javascript formatting plugin for this nice editor by Davis
+            Clark,</li>
+          <li><strong>vim:</strong> <a href="https://github.com/michalliu/sourcebeautify.vim">sourcebeautify.vim</a>, a plugin by michalliu (requires node.js, V8, SpiderMonkey
+            or cscript js engine),</li>
+          <li><strong>vim:</strong> <a href="https://github.com/maksimr/vim-jsbeautify">vim-jsbeautify</a>, a plugin by Maksim Ryzhikov (node.js or V8 required),</li>
+
+          <li><strong>Emacs:</strong> <a href="https://github.com/yasuyk/web-beautify">Web-beautify</a> formatting package by Yasuyuki Oka,</li>
+          <li><strong>Komodo IDE:</strong> <a href="http://komodoide.com/packages/addons/beautify-js/">Beautify-js</a> addon by Bob de Haas (<a href="https://github.com/babobski/Beautify-js">github</a>),</li>
+          <li><strong>C#:</strong> ghost6991 <a href="https://github.com/ghost6991/Jsbeautifier">ported the javascript formatter to C#</a>,</li>
+          <li><strong>Go:</strong> ditashi has <a href="https://github.com/ditashi/jsbeautifier-go">ported the javascript formatter to golang</a>,</li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <ul class="uses">
+          <li><a href="https://marketplace.visualstudio.com/items/HookyQR.beautify">Beautify plugin</a> (<a href="https://github.com/HookyQR/VSCodeBeautify">github</a>) by HookyQR for the <a href="https://code.visualstudio.com/">Visual Studio Code</a> IDE,</li>
+          <li><a href="http://fiddler2.com/">Fiddler</a> proxy: <a href="http://fiddler2.com/Fiddler2/extensions.asp">JavaScript Formatter addon</a>,</li>
+          <li><a href="https://github.com/nagaozen/gedit-tunnings/">gEdit tips</a> by Fabio Nagao,</li>
+          <li><a href="http://akelpad.sourceforge.net/forum/viewtopic.php?p=11246#11246">Akelpad extension</a> by Infocatcher,</li>
+          <li>Beautifier in <a href="http://sethmason.com/2011/04/28/jsbeautify-in-emacs.html">Emacs</a> write-up by Seth Mason,</li>
+          <li><a href="http://c9.io/">Cloud9</a>, a lovely IDE running in a browser, working in the node/cloud, uses jsbeautifier (<a href="https://github.com/ajaxorg/cloud9">github</a>),</li>
+          <li><a href="https://www.comment-devenir-un-hacker.com/app.html">Devenir Hacker App</a>, a non-free JavaScript packer for Mac,</li>
+          <li><a href="http://www.restconsole.com/">REST Console</a>, a request debugging tool for Chrome, beautifies JSON responses (<a href="https://github.com/codeinchaos/rest-console">github</a>),</li>
+          <li><a href="http://mitmproxy.org/">mitmproxy</a>, a nifty SSL-capable HTTP proxy, provides pretty javascript responses (<a href="https://github.com/cortesi/mitmproxy">github</a>).</li>
+          <li><a href="http://www.wakanda.org/">wakanda</a>, a neat IDE for web and mobile applications has a <a href="http://forum.wakanda.org/showthread.php?1483-3-new-extensions-JSLint-Beautifier-and-Snippet">Beautifier extension</a>
+            (<a href="https://github.com/Wakanda/wakanda-extensions/tree/master/Beautifier">github</a>).</li>
+          <li><a href="http://portswigger.net/burp/">Burp Suite</a> now has a <a href="https://github.com/irsdl/BurpSuiteJSBeautifier/">beautfier extension</a>,
+            thanks to Soroush Dalili,</li>
+          <li><a href="http://plugins.netbeans.org/plugin/43263/jsbeautify">Netbeans jsbeautify</a> plugin by Drew Hamlett
+            (<a href="https://github.com/drewhjava/netbeans-jsbeautify">github</a>).</li>
+          <li><a href="https://github.com/drewhjava/brackets-beautify">brackets-beautify-extension</a> for <a href="http://brackets.io/">Adobe Brackets</a> by Drew
+            Hamlett (<a href="https://github.com/drewhjava/brackets-beautify">github</a>),</li>
+          <li><a href="http://codecaddy.net/">codecaddy.net</a>, a collection of webdev-related tools, assembled by Darik Hall,</li>
+          <li><a href="http://www.editey.com/">editey.com</a>, an interesting and free Google-Drive oriented editor uses this beautifier,</li>
+          <li><a href="https://github.com/vkadam/grunt-jsbeautifier">a beautifier plugin for Grunt</a> by Vishal Kadam,</li>
+          <li><a href="http://www.uvviewsoft.com/synwrite/">SynWrite</a> editor has a JsFormat plugin (<a href="https://sourceforge.net/projects/synwrite-addons/files/PyPlugins/Alexey.JsFormat/">rar</a>, <a href="http://synwrite.sourceforge.net/forums/viewtopic.php?f=19&amp;t=865">readme</a>),</li>
+          <li><a href="http://liveditor.com/">LIVEditor</a>, a live-editing HTML/CSS/JS IDE (commercial, Windows-only) uses the library,</li>
+        </ul>
+      </div>
+      <p>Doing anything interesting? Write us to <b>team@beautifier.io</b> so we can add your project to the list.</p>
+
+      <p style="text-align:right">
+        <a href="https://beautifier.io/#" style="color: #ccc; border-bottom: 1px dashed #ccc; text-decoration: none;" onclick="run_tests(); return false;">Run the tests</a>
+      </p>
+      <div id="testresults"></div>
+    </div>
+  </div>
+  <script src="./Online JavaScript beautifier_files/onload.js"></script>
+  <script src="./Online JavaScript beautifier_files/google-analytics.js"></script>
+
+
+
+</body></html>

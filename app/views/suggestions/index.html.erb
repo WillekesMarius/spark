@@ -18,13 +18,17 @@
 <div class="cover">
 
   <div class="card text-white image-container" style="max-height: 190px; object-fit: cover">
-    <%= image_tag("dashboard-3.jpeg", class: "card-img", style: "margin-top:40px; min-height: 215px ") %>
-  <!--  <div class="gradient-overlay"></div> -->
+
+    <%= image_tag("dashboard-6.jpg", class: "card-img", style: "margin-top:60px; min-height: 215px ") %>
+    <p style="position: absolute; left: 50%; top: 40px; transform: translate(-50%); z-index: 1000; font-weight: 400; font-size: 16px; font-style: italic; color: black;"
+    >spark up your love life and explore 2,421 curated dating tips </p>
+
     <p style="position: absolute; left: 50%; top: 120px; transform: translate(-50%); z-index: 1000; font-weight: 400; font-size: 16px; font-style: italic; color: beige; letter-spacing: 1px;"
 >Good things are coming.. </p>
+
     <p
     style="position: absolute; left: 50%; top: 134px; transform: translate(-50%); z-index: 1000; font-weight: 700; font-size: 35px; color: white; text-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;"
-  >Spark it up!</p>
+  ></p>
   </div>
 </div>
 
@@ -70,64 +74,66 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-   <script>
+   <script >
 
 
 
-      //    https://hammerjs.github.io/recognizer-swipe/
-      const suggestionCards = document.querySelectorAll("swiper-slide");
-      suggestionCards.forEach((card) => {
-      const suggestionCard = new Hammer(card);
+    //    https://hammerjs.github.io/recognizer-swipe/
+    let suggestionCards = document.querySelectorAll("swiper-slide");
+suggestionCards.forEach((card) => {
+    let suggestionCard = new Hammer(card);
 
-       suggestionCard.on('swipeleft', function () {
-        const suggestionId = card.getAttribute('data-suggestion-id');
+    suggestionCard.on('swipeleft', function() {
+        let suggestionId = card.getAttribute('data-suggestion-id');
         removeFromFavorites(suggestionId);
-       });
+    });
 
-       suggestionCard.on('tap', function () {
-        const suggestionId = card.getAttribute('data-suggestion-id');
+    suggestionCard.on('tap', function() {
+        let suggestionId = card.getAttribute('data-suggestion-id');
         onTap(suggestionId);
-       });
+    });
 
-      suggestionCard.on('swiperight', function () {
-      const suggestionId = card.getAttribute('data-suggestion-id');
-       addToFavorites(suggestionId);
-      });
+    suggestionCard.on('swiperight', function() {
+        let suggestionId = card.getAttribute('data-suggestion-id');
+        addToFavorites(suggestionId);
+    });
 
 
-      });
+});
 
-   function onTap(suggestionId) {
-        console.log('Tapped Me', suggestionId);
-        newPageURL = "/suggestions/" + suggestionId; // Replace with your desired URL
+function onTap(suggestionId) {
+    newPageURL = "/suggestions/" + suggestionId; // Replace with your desired URL
 
-      // Use window.location.href to navigate to the new page
-      window.location.href = newPageURL;
+    // Use window.location.href to navigate to the new page
+    window.location.href = newPageURL;
 
-      }
-      function removeFromFavorites(suggestionId) {
-        console.log('Swipet left:', suggestionId);
-      }
+}
 
-       function addToFavorites(suggestionId) {
-      const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-      fetch(`/favorites`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': csrfToken,
-      },
-      body: JSON.stringify({ suggestion_id:suggestionId }),
-      })
-      .then((response) => {
-        if (response.ok) {
-                  console.log('success');
-        } else {
-          console.error('Failed to add to favorites :', response.status);
+function removeFromFavorites(suggestionId) {
+    console.log('Swipet left:', suggestionId);
+}
+
+async function addToFavorites(suggestionId) {
+        try {
+            let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            let response = await fetch(`/favorites`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': csrfToken,
+                },
+                body: JSON.stringify({
+                    suggestion_id: suggestionId
+                }),
+            });
+
+            if (response.ok) {
+                console.log('success');
+            } else {
+                console.error('Failed to add to favorites :', response.status);
+            }
+        } catch (error) {
+            console.error(error);
         }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-      }
-      </script>
+    }
+</script>
