@@ -38,7 +38,7 @@
     fetch(`${referrerUrl[4]}?filter=Amsterdam`, {headers: {"Accept": "text/plain"}})
     .then(response => response.text())
     .then((data) => {
-      categoryPage.outerHTML = data
+      categoryPage.innerHTML = data
     })
   })
 
@@ -49,18 +49,19 @@
     fetch(`${referrerUrl[4]}?filter=Rotterdam`, {headers: {"Accept": "text/plain"}})
     .then(response => response.text())
     .then((data) => {
-      categoryPage.outerHTML = data
+      categoryPage.innerHTML = data
     })
   })
 
   const theHagueButton = document.querySelector('#the-hague-btn')
   theHagueButton.addEventListener('click', (event) => {
+    console.log(categoryPage)
     const referrerUrl = document.referrer.split('/')
 
     fetch(`${referrerUrl[4]}?filter=TheHague`, {headers: {"Accept": "text/plain"}})
     .then(response => response.text())
     .then((data) => {
-      categoryPage.outerHTML = data
+      categoryPage.innerHTML = data
     })
   })
 </script>
