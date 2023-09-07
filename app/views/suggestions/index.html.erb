@@ -37,9 +37,9 @@
 
        <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
           <% if suggestion.images.present? && suggestion.images[0].present? %>
-  <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 350px; overflow:hidden;") %>
+  <%= image_tag(suggestion.images[0], class: "card-img-top", style: "max-height: 315px; object-fit:cover;") %>
 <% else %>
-  <%= image_tag("food-01.jpg", class: "card-img-top", style: "max-height: 370px") %>
+  <%= image_tag("food-01.jpg", class: "card-img-top", style: "max-height: 315px; object-fit:cover;") %>
 <% end %>
   <div class="suggestion-cards-info">
     <h5
