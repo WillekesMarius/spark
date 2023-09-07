@@ -45,7 +45,7 @@
                   as: :string,
                   input_html: { data: { controller: "datepicker"}} %>
             <%# <button class="btn btn-primary btn-lg" data-controller="confirm-button" data-action="click->confirm-button#confirm">Click Me!</button> %>
-            <%= f.submit "Create Spark", style: "margin-bottom: 3px;", class:"btn btn-ghost", id:"create-spark"%>
+            <%= f.submit "Create Spark", class:"btn btn-ghost", id:"create-spark"%>
           <% end %>
           <% unless @suggestion.favorites.find_by(user_id: current_user.id).occurs_on == nil %>
             <p style="margin-top: 3px; margin-left: 13px">Your Spark is set!</p>
@@ -87,7 +87,7 @@
         </div>
       </div>
 
-      <div>
+      <div data-controller="refresh" data-action="click->refresh#refresh">
         <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
           <%= @suggestion.city %>
           &nbsp;

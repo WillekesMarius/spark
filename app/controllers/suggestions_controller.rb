@@ -15,9 +15,13 @@ class SuggestionsController < ApplicationController
     # end
   end
 
+  def refresh
+    redirect_to suggestion_path(params[:id])
+  end
+
   def update
     @suggestion = Suggestion.find(params[:id])
-    
+
     @favorite = @suggestion.favorites.where(user_id: current_user.id)
     @favorite.update(date_params)
   end
