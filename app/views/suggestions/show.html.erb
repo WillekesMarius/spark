@@ -110,29 +110,32 @@
   </div>
 </div>
 <script>
-  const carousel = new bootstrap.Carousel('#myCarousel', {
-    interval: 1000
-  })
-
-  const coordinates = document.getElementById('coordinates');
+ const coordinates = document.getElementById('coordinates');
     const addressElement = document.getElementById('address');
 
   accessToken = 'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
 
-  `https://api.mapbox.com/geocoding/v5/mapbox.places/${addressElement}.json?proximity=ip&access_token=${accessToken}`
-
-
   mapboxgl.accessToken = accessToken;
   console.log(coordinates.dataset.longitude)
   const map = new mapboxgl.Map({
-  container: 'map',
-  // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-  style: 'mapbox://styles/mapbox/streets-v12',
-  center: [coordinates.dataset.longitude, coordinates.dataset.latitude],
-  zoom: 15,
-  trackUserLocation: true
+    container: 'map',
+    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [coordinates.dataset.longitude, coordinates.dataset.latitude],
+    zoom: 15,
   });
 
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+    positionOptions: {
+    enableHighAccuracy: true
+    },
+    // When active the map will receive updates to the device's location as it changes.
+    trackUserLocation: true,
+    // Draw an arrow next to the location dot to indicate which direction the device is heading.
+    showUserHeading: true
+    })
+  );
 
   new mapboxgl.Marker()
   .setLngLat([coordinates.dataset.longitude, coordinates.dataset.latitude])
