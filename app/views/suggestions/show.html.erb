@@ -127,7 +127,8 @@
     const coordinates = document.getElementById('coordinates');
        const addressElement = document.getElementById('address');
 
-     accessToken = 'pk.eyJ1IjoicHJhY2hpMjUiLCJhIjoiY2xtM3Q1N2lyNDY0bTNxdGh1eG1vMW94MCJ9.eRtL5A5z0SDvt0ViEDskCw';
+     accessToken = ENV['MAPBOX_API_KEY'];
+     console.log(accessToken)
 
      mapboxgl.accessToken = accessToken;
      console.log(coordinates.dataset.longitude)
