@@ -38,17 +38,17 @@
   <% if current_user.favorites.find_by(suggestion_id: @suggestion.id) %>
     <div class="card mb-3 suggestion-cards" style='overflow: hidden'>
       <div class="suggestion-cards-info">
-        <div id='spark-dates'>
+        <div id='spark-dates' style="background-color: white">
           <%= simple_form_for(current_user.favorites.find_by(suggestion_id: @suggestion.id)) do |f| %>
             <%= f.input :occurs_on,
                   placeholder: "",
                   as: :string,
                   input_html: { data: { controller: "datepicker"}} %>
             <%# <button class="btn btn-primary btn-lg" data-controller="confirm-button" data-action="click->confirm-button#confirm">Click Me!</button> %>
-            <%= f.submit "Create Spark", id:"create-spark"%>
+            <%= f.submit "Create Spark", class:"btn btn-ghost", id:"create-spark"%>
           <% end %>
           <% unless @suggestion.favorites.find_by(user_id: current_user.id).occurs_on == nil %>
-            <p>Your Spark is set!</p>
+            <p style="margin-bottom: 0px">Your Spark is set!</p>
           <% end %>
         </div>
       </div>
@@ -56,6 +56,7 @@
   <% end %>
   <div>
   </div>
+
   <div class="container card mb-3 suggestion-cards" style='overflow: hidden;'>
     <div class="suggestion-cards-info">
       <div class="d-flex justify-content-between">
@@ -72,17 +73,20 @@
               <%= simple_form_for [@suggestion, @favorite] do |f| %>
                 <input type="hidden" id="referrer" name="referrer" value="show" />
                 <%= f.button :button do %>
-                  <i id="heart" class="fa-regular fa-heart fa-xl"></i>
+                <%= image_tag("heartblack.svg", class:"", style:"")  %>
+                  <%# <% <i id="heart" class="fa-regular fa-heart fa-xl"></i> %>
                 <% end %>
               <% end %>
             <% else %>
               <%= link_to favorite_path(current_user.favorites.where(suggestion: @suggestion).first), data: {turbo_method: :delete} do %>
-                <i id="heart" class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i>
+                <%= image_tag("heartred.svg", class:"", style:"color: #db3333;")  %>
+                <%# <i id="" class="fa-solid fa-heart love fa-2xl" style="color: #db3333;"></i> %>
               <% end %>
             <% end %>
           <% end %>
         </div>
       </div>
+      
       <div>
         <p class="card-text b-5"><i class="fa-solid fa-location-dot"></i>
           <%= @suggestion.city %>
