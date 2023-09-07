@@ -1,23 +1,12 @@
-<div class="container categories-index" style="margin-top: 90px">
+<div class="container categories-index" style="margin-top: 60px">
 
   <div>
-    <div
-      class="container d-flex justify-content-between"
-      style="padding-left: 40px; padding-right: 40px; "
-    >
-      <div><button
-          type="button"
-          class="btn btn-outline-secondary"
-          style="border-radius: 20px; width: 120px;"
-        >Location</button></div>
-      <div><button
-          type="button"
-          class="btn btn-outline-secondary"
-          style="border-radius: 20px; width: 120px;"
-        >Date/Time</button></div>
+    <div class="border-bottom">
+      <p style="text-align: center; font-size: 23px; font-weight: 700; margin-bottom: 10px; bold; margin-top: 15px;">
+        Categories
+      </p>
     </div>
-    <hr>
-    <p style="text-align: center; font-size: 19px; font-weight: bold;">Categories</p>
+
     <% colors = %w[
       darkred
       darkblue
@@ -29,7 +18,8 @@
       voilet
       darkturquoise
     ] %>
-    <div class="row justify-content-around" style="margin-left: 8px; margin-right: 8px; ">
+
+    <div class="row justify-content-around" style="margin-left: 8px; margin-right: 8px; margin-top: 20px">
       <% @categories.each_with_index do |category, index| %>
         <div class='card category-cards col-5 mb-3 text-center py-3'>
           <%= link_to category_path(category), class: 'text-decoration-none text-dark pt-2' do %>
