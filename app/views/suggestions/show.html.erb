@@ -48,7 +48,7 @@
             <%= f.submit "Create Spark", class:"btn btn-ghost", id:"create-spark"%>
           <% end %>
           <% unless @suggestion.favorites.find_by(user_id: current_user.id).occurs_on == nil %>
-            <p style="margin-bottom: 0px">Your Spark is set!</p>
+            <p style="margin-top: 3px; margin-left: 13px">Your Spark is set!</p>
           <% end %>
         </div>
       </div>
