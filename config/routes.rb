@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
   resources :favorites, only: %i[destroy index update create]
 
+  get "/refresh/:id", to: "suggestions#refresh", as: "refresh"
+
   resources :reviews, only: %i[show new create]
   resources :categories, only: %i[index show]
   resources :chatgpt, only: %i[index]
   resources :pages, only: %i[index profile home]
     get "/profile", to: "pages#profile", as: "profile"
     get "/home", to: "pages#home", as: "home"
-
 end
