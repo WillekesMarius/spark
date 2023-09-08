@@ -1,36 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <style>
-        body {
-            background-color: #992944;
-        }
-        .center-text {
-            position: absolute;
-            top: 49%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 36px;
-            text-align: center;
-        }
+      body {
+          background-color: #992944;
+      }
+      .center-text {
+          position: absolute;
+          top: 49%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+          font-size: 36px;
+          text-align: center;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="center-text">
+      <div class="center-text">
+        <%= link_to suggestions_path do %>
           <%= image_tag("spark-home.png", alt: "Spark-logo", style:"width:100%") %>
-        </div>
+        <% end %>
+      </div>
     </div>
-</body>
-<script>
-
-        setTimeout(function() {
-            window.location.href = '/suggestions';
-        }, 3000);
-    </script>
+  </body>
+  <script>
+  </script>
 </html>
