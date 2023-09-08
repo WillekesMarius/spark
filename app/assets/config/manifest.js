@@ -5,3 +5,4 @@
 //= link popper.js
 //= link bootstrap.min.js
 //= link controllers/datepicker_controller.js
+//= link manifest.json
